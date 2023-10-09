@@ -55,6 +55,7 @@ const NoteForm = ({ setDisplay, formType }) => {
         <h1>{formType === 'add' ? 'New Note' : 'Edit Note'}</h1>
         <form className="add-note-form" onSubmit={onSubmit}>
           <input
+            className="input-bar"
             type="text"
             placeholder="title"
             value={rTitle}
@@ -66,7 +67,7 @@ const NoteForm = ({ setDisplay, formType }) => {
           <p className="title-limit" style={setColor()}>
             You have {50 - rTitle.length} character(s) left
           </p>
-          <textarea cols="30" rows="10" placeholder="write your note here..." value={rNote} onChange={(e) => setRNote(e.target.value)} required autoFocus></textarea>
+          <textarea className="textarea-bar" cols="30" rows="10" placeholder="write your note here..." value={rNote} onChange={(e) => setRNote(e.target.value)} required autoFocus></textarea>
           <button type="submit">{isLoading ? <lord-icon src="https://cdn.lordicon.com/xjovhxra.json" trigger="loop" colors="primary:#1f1f1f,secondary:#1f1f1f" style={{ width: '20px', height: '20px' }}></lord-icon> : 'Submit'}</button>
         </form>
       </div>

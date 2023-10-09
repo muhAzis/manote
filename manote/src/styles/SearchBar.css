@@ -7,7 +7,7 @@
   border-radius: 30px;
   box-shadow: var(--clr-box-shadow3);
 
-  input {
+  .input-bar {
     width: 100%;
     color: var(--clr-text1);
     font-size: 1rem;

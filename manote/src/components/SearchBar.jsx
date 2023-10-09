@@ -10,7 +10,7 @@ const SearchBar = () => {
   return (
     <div className="searchbar-container" style={location.pathname === '/notes' || location.pathname === '/archive' ? {} : { display: 'none' }}>
       <i className="bi bi-search"></i>
-      <input type="text" placeholder="Find notes..." onChange={(e) => filterNotes(e.target.value)} />
+      <input className="input-bar" type="text" placeholder="Find notes..." onChange={(e) => filterNotes(e.target.value)} />
     </div>
   );
 };

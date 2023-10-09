@@ -30,6 +30,7 @@ const Signin = () => {
         <h1 className="title">Register</h1>
         <form className="signin-form" onSubmit={onSubmit}>
           <input
+            className="input-bar"
             type="text"
             placeholder="Name"
             value={name}
@@ -42,9 +43,9 @@ const Signin = () => {
           <p className="text-info" style={name.length === 50 ? { color: 'var(--clr-danger)' } : {}}>
             You have {50 - name.length} character(s) left
           </p>
-          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required />
+          <input className="input-bar" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required />
           <p className="text-info">e.g. user@gmail.com</p>
-          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
+          <input className="input-bar" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
           <ul className="password-rules">
             <li className="rules rule-1" style={password.length >= 8 ? { color: 'var(--clr-text-second)' } : {}}>
               Minimum of 8 characters
@@ -56,7 +57,7 @@ const Signin = () => {
               At least one numeric
             </li>
           </ul>
-          <input type="password" placeholder="Confirm password" value={cPassword} onChange={(e) => setCPassword(e.target.value)} required />
+          <input className="input-bar" type="password" placeholder="Confirm password" value={cPassword} onChange={(e) => setCPassword(e.target.value)} required />
           <p className="confirm-password" style={cPassword === password ? { color: 'var(--clr-text-second)' } : {}}>
             Confirm your password
           </p>

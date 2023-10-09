@@ -48,8 +48,8 @@
       max-width: 400px;
       gap: 30px;
 
-      input,
-      textarea {
+      .input-bar,
+      .textarea-bar {
         width: 100%;
         padding: 10px;
         border-radius: 10px;
@@ -58,7 +58,7 @@
         resize: none;
       }
 
-      input:focus + p {
+      .input-bar:focus + p {
         display: block;
       }
 

@@ -30,7 +30,7 @@
       justify-content: center;
       align-items: center;
 
-      input {
+      .input-bar {
         width: 100%;
         padding: 10px;
         border-radius: 10px;
@@ -38,8 +38,8 @@
         border: none;
       }
 
-      input:focus + p,
-      input:focus + ul {
+      .input-bar:focus + p,
+      .input-bar:focus + ul {
         display: block;
       }
 

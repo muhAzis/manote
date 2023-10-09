@@ -33,8 +33,8 @@ const Login = () => {
       <div className="form-container">
         <h1 className="title">Login</h1>
         <form className="login-form" onSubmit={onSubmit}>
-          <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
-          <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+          <input className="input-bar" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+          <input className="input-bar" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
           <p className="error-message" style={error.length ? { display: 'block' } : { display: 'none' }}>
             {error}
           </p>
