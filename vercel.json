@@ -1,6 +1,6 @@
 {
   "buildCommand": "cd manote && npm install && npm run build",
-  "outputDirectory": "manote/build",
+  "outputDirectory": "manote/dist",
   "framework": "vite",
   "rewrites": [
     {
