@@ -1,0 +1,53 @@
+.setting-item-container {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+
+  .setting-info {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .setting-action {
+    display: flex;
+    align-items: center;
+
+    .toggle-btn {
+      position: relative;
+      width: 60px;
+      height: 30px;
+      padding: 4px;
+      background-color: var(--clr-text2);
+      border-radius: 50px;
+      transition: all 0.2s;
+      cursor: pointer;
+
+      .toggler {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        left: 4px;
+        margin-inline: 0 auto;
+        background-color: var(--clr-bg-light);
+        border-radius: 50%;
+        transition: all 0.2s;
+      }
+    }
+
+    .toggle-btn:hover {
+      background-color: var(--clr-text3);
+    }
+
+    .active {
+      background-color: var(--clr-action);
+
+      .toggler {
+        left: 34px;
+      }
+    }
+
+    .active:hover {
+      background-color: var(--clr-action2);
+    }
+  }
+}

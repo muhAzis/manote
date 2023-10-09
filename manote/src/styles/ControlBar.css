@@ -1,0 +1,177 @@
+.control-bar-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  border-radius: 20px;
+  justify-content: space-between;
+  z-index: 90;
+
+  .col1 {
+    display: flex;
+    padding: 0 20px;
+    height: 70px;
+    gap: 30px;
+    background-color: var(--clr-bg-light3);
+    box-shadow: var(--clr-box-shadow2);
+    justify-content: flex-end;
+    align-items: center;
+
+    .account-info {
+      position: relative;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+
+      .profile-pic {
+        color: var(--clr-text1);
+        font-size: 2.2rem;
+        line-height: 0;
+      }
+
+      .profile-detail {
+        display: flex;
+        flex-direction: column;
+        max-width: 200px;
+        color: var(--clr-text1);
+        justify-content: center;
+
+        h5.email {
+          color: var(--clr-text2);
+        }
+
+        h3.username,
+        h5.email {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+
+      .option-btn {
+        color: var(--clr-text1);
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+
+      .option-btn:hover {
+        color: var(--clr-action);
+      }
+
+      .option-menu {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        max-height: 0;
+        top: 170%;
+        right: 0;
+        background-color: var(--clr-bg-light);
+        box-shadow: var(--clr-box-shadow2);
+        border-radius: 6px;
+        opacity: 0;
+        transition: all 0.2s;
+        overflow: hidden;
+
+        a.profile-btn,
+        p.logout-btn {
+          padding: 10px 50px;
+          padding-block: 10px;
+          color: var(--clr-text1);
+          font-weight: 700;
+          text-align: center;
+          text-decoration: none;
+          transition: all 0.2s;
+          cursor: pointer;
+        }
+
+        p.logout-btn {
+          display: flex;
+          gap: 6px;
+          border-top: 1px solid var(--clr-bg-dark-trans2);
+          align-items: center;
+          justify-content: center;
+
+          i {
+            font-size: 1.1rem;
+          }
+
+          lord-icon {
+            width: 22px;
+            height: 22px;
+          }
+        }
+
+        a.profile-btn:hover,
+        p.logout-btn:hover {
+          color: var(--clr-bg-light);
+          background-color: var(--clr-action);
+        }
+      }
+
+      .option-menu.active {
+        max-height: 100px;
+        opacity: 1;
+      }
+    }
+  }
+
+  .col2 {
+    display: flex;
+    padding: 0 40px 10px;
+    justify-content: space-between;
+    align-items: center;
+
+    .sorting-container {
+      display: flex;
+      gap: 10px;
+
+      .sort-reverse {
+        font-size: 1.3rem;
+        line-height: 0;
+      }
+
+      .sort-reverse,
+      .sort-menu {
+        padding: 10px;
+        background-color: var(--clr-action2);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .sort-reverse:hover,
+      .sort-menu:hover {
+        background-color: var(--clr-action);
+      }
+
+      .sort-reverse.active,
+      .sort-menu.active {
+        background-color: var(--clr-action);
+      }
+    }
+
+    button.add-note-btn {
+      display: flex;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--clr-action);
+      background: none;
+      border: none;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      i {
+        font-size: 1.8rem;
+        line-height: 0;
+      }
+    }
+
+    button.add-note-btn:hover {
+      color: var(--clr-action2);
+    }
+  }
+}

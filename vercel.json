@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd manote && npm install && npm run build",
+  "outputDirectory": "manote/build",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+.dark-mode-btn {
+  position: relative;
+  display: flex;
+  width: 70px;
+  height: 40px;
+  color: var(--clr-planet2);
+  background-color: var(--clr-sky);
+  border-radius: 30px;
+  outline: 2px solid var(--clr-planet);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  .dark {
+    left: 0;
+    transform: none;
+  }
+
+  .toggle-dark-mode {
+    position: absolute;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    top: 5px;
+    left: 5px;
+    color: var(--clr-planet2);
+    font-size: 1.6rem;
+    line-height: 0;
+    background-color: var(--clr-planet);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+    overflow: hidden;
+  }
+
+  .dark-mode {
+    left: 100%;
+    transform: translateX(-35px);
+  }
+
+  .moon-hole {
+    position: absolute;
+    display: inline;
+    background-color: var(--clr-planet-accent);
+    border-radius: 50%;
+    transition: all 0.2s;
+  }
+
+  .hole1 {
+    width: 40%;
+    height: 40%;
+    top: 0.2rem;
+    left: 0.3rem;
+  }
+
+  .hole2 {
+    width: 25%;
+    height: 25%;
+    top: 0.8rem;
+    left: 1.3rem;
+  }
+
+  .hole3 {
+    width: 15%;
+    height: 15%;
+    bottom: 0.4rem;
+    left: 0.7rem;
+  }
+}

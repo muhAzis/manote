@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+:root {
+  --font-default: 'Montserrat', sans-serif;
+
+  --clr-text-second-trans: rgba(255, 255, 255, 0.6);
+  --clr-text-second3: #474747;
+  --clr-text-second2: white;
+  --clr-text-second: white;
+  --clr-text3: #d3d3d3;
+  --clr-text2: #b1b1b1;
+  --clr-text1: #474747;
+  --clr-main-dark: #003554;
+  --clr-main2: #7dcef7;
+  --clr-main: #00a6fb;
+  --clr-action2: #7dcef7;
+  --clr-action: #00a6fb;
+  --clr-accent2: #ffa970;
+  --clr-accent: #ff6700;
+  --clr-danger3: #f5c9cc;
+  --clr-danger2: #e43d48;
+  --clr-danger: #c1121f;
+  --clr-green: #7ae582;
+  --clr-bg-light3: #f9f9f9;
+  --clr-bg-light2: #f9f9f9;
+  --clr-bg-light: white;
+  --clr-bg-glass: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+  --clr-bg-light-trans2: rgba(255, 255, 255, 0.2);
+  --clr-bg-light-trans: rgba(255, 255, 255, 0.6);
+  --clr-bg-dark-trans2: rgba(0, 0, 0, 0.2);
+  --clr-bg-dark-trans: rgba(0, 0, 0, 0.4);
+  --clr-box-shadow3: 0 0 10px 1px rgba(0, 0, 0, 0.08);
+  --clr-box-shadow2: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  --clr-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+  --clr-window2: rgba(0, 0, 0, 0.06);
+  --clr-window: rgba(0, 0, 0, 0.03);
+
+  --clr-planet2: white;
+  --clr-planet: #ffb703;
+  --clr-sky: #90e0ef;
+}
+
+[theme-type='dark'] {
+  --font-default: 'Montserrat', sans-serif;
+
+  --clr-text-second-trans: rgba(255, 255, 255, 0.6);
+  --clr-text-second3: #474747;
+  --clr-text-second2: #00a6fb;
+  --clr-text-second: white;
+  --clr-text3: #d3d3d3;
+  --clr-text2: #6b6b6b;
+  --clr-text1: white;
+  --clr-main-dark: #003554;
+  --clr-main2: #7dcef7;
+  --clr-main: #25272a;
+  --clr-action2: #7dcef7;
+  --clr-action: #00a6fb;
+  --clr-accent2: #ffa970;
+  --clr-accent: #ff6700;
+  --clr-danger3: #f5c9cc;
+  --clr-danger2: #e43d48;
+  --clr-danger: #c1121f;
+  --clr-green: #7ae582;
+  --clr-bg-light3: #2b2d31;
+  --clr-bg-light2: #202225;
+  --clr-bg-light: #25272a;
+  --clr-bg-glass: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+  --clr-bg-light-trans2: rgba(255, 255, 255, 0.2);
+  --clr-bg-light-trans: rgba(255, 255, 255, 0.6);
+  --clr-bg-dark-trans2: rgba(0, 0, 0, 0.2);
+  --clr-bg-dark-trans: rgba(0, 0, 0, 0.4);
+  --clr-box-shadow3: 0 0 10px 1px rgba(20, 20, 20, 0.08);
+  --clr-box-shadow2: 0 0 10px 1px rgba(20, 20, 20, 0.2);
+  --clr-box-shadow: 0 0 10px 1px rgba(20, 20, 20, 0.4);
+  --clr-window2: rgba(0, 0, 0, 0.06);
+  --clr-window: rgba(255, 255, 255, 0.03);
+
+  --clr-planet-accent: #2c455a;
+  --clr-planet2: white;
+  --clr-planet: #3e5c76;
+  --clr-sky: #1d2d44;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+window {
+  color: var(--clr-bg-light2);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--clr-bg-light2);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+#root {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+#root,
+input,
+button {
+  font-family: var(--font-default);
+}
+
+.main-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--clr-bg-light2);
+}
