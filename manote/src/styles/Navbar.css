@@ -22,7 +22,7 @@ nav {
       flex-direction: column;
       list-style: none;
 
-      li a {
+      li span {
         position: relative;
         display: flex;
         padding-block: 15px;
@@ -32,22 +32,23 @@ nav {
         text-decoration: none;
         transition: all 0.2s;
         align-items: center;
+        cursor: pointer;
 
         i {
           font-size: 1.6rem;
         }
       }
 
-      li a.inactive:hover {
+      li span.inactive:hover {
         color: var(--clr-text-second2);
       }
 
-      li a.active {
+      li span.active {
         color: var(--clr-text-second2);
         font-weight: 700;
       }
 
-      li a.active::before {
+      li span.active::before {
         content: '';
         position: absolute;
         width: 6px;

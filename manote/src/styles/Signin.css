@@ -46,9 +46,11 @@
       p {
         text-align: center;
 
-        a {
+        span {
           color: var(--clr-text-second);
           font-weight: 700;
+          text-decoration: underline;
+          cursor: pointer;
         }
       }
 

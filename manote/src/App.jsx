@@ -25,6 +25,14 @@ const Default = () => {
   return;
 };
 
+const Notes = ({ isArchivePage }) => {
+  return <NotesPage isArchivePage={isArchivePage} />;
+};
+
+const Archive = ({ isArchivePage }) => {
+  return <NotesPage isArchivePage={isArchivePage} />;
+};
+
 const App = () => {
   const location = useLocation();
   const { settings } = useSettings();
@@ -48,8 +56,8 @@ const App = () => {
 
           <Route element={<ProtectedRoutes />}>
             <Route element={<Default />} path="/" />
-            <Route element={<NotesPage isArchivePage={false} />} path="/notes" />
-            <Route element={<NotesPage isArchivePage={true} />} path="/archive" />
+            <Route element={<Notes isArchivePage={false} />} path="/notes" />
+            <Route element={<Archive isArchivePage={true} />} path="/archive" />
             <Route element={<NoteDetail />} path="/notes/:id" />
             <Route element={<Profile />} path="/profile" />
             <Route element={<Settings />} path="/settings" />

@@ -73,7 +73,7 @@
         transition: all 0.2s;
         overflow: hidden;
 
-        a.profile-btn,
+        span.profile-btn,
         p.logout-btn {
           padding: 10px 50px;
           padding-block: 10px;
@@ -102,7 +102,7 @@
           }
         }
 
-        a.profile-btn:hover,
+        span.profile-btn:hover,
         p.logout-btn:hover {
           color: var(--clr-bg-light);
           background-color: var(--clr-action);

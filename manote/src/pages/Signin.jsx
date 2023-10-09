@@ -63,7 +63,7 @@ const Signin = () => {
           </p>
           <p>
             {'Already have account? '}
-            <a href="/login">Login</a>
+            <span onClick={() => navigate('/login')}>Login</span>
             {' here!'}
           </p>
           <button type="submit">{isLoading ? <lord-icon src="https://cdn.lordicon.com/xjovhxra.json" trigger="loop" colors="primary:#ffffff,secondary:#ffffff" style={{ width: '20px', height: '20px' }}></lord-icon> : 'Submit'}</button>

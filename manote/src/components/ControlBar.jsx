@@ -63,9 +63,9 @@ const ControlBar = () => {
             <i className="bi bi-caret-down-fill option-btn" onClick={() => setShowOption((prev) => !prev)}></i>
             <div className={showOption ? 'option-menu active' : 'option-menu'}>
               {location.pathname !== '/profile' && (
-                <a href="/profile" className="profile-btn">
+                <span className="profile-btn" onClick={() => navigate('/profile')}>
                   Profile
-                </a>
+                </span>
               )}
               <p className="logout-btn" onClick={onLogout}>
                 Logout {isLoading ? <lord-icon src="https://cdn.lordicon.com/xjovhxra.json" trigger="loop" colors="primary:#ffffff,secondary:#ffffff"></lord-icon> : <i className="bi bi-box-arrow-right"></i>}
