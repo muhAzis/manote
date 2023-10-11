@@ -1,7 +1,10 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
-// axios.defaults.baseURL = '/api';
+if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+  axios.defaults.baseURL = 'http://localhost:5000/api';
+} else {
+  axios.defaults.baseURL = '/api';
+}
 axios.defaults.withCredentials = true;
 
 let refresh = false;
