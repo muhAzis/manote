@@ -4,6 +4,7 @@ import '../styles/Login.css';
 import { useSettings } from '../hooks/useSettings';
 import DarkModeButton from '../components/DarkModeButton';
 import useLogin from '../hooks/useLogin';
+import CustomLogo from '../components/CustomLogo';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -29,6 +30,10 @@ const Login = () => {
 
   return (
     <div className="login-container">
+      <h3 id="navLogo">
+        <CustomLogo width="30px" color="var(--clr-text-second)" />
+        Manote
+      </h3>
       <DarkModeButton position="absolute" />
       <div className="form-container">
         <h1 className="title">Login</h1>

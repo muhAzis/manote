@@ -8,17 +8,28 @@
   justify-content: center;
   align-items: center;
 
+  h3 {
+    position: absolute;
+    display: flex;
+    top: 1rem;
+    left: 2rem;
+    gap: 10px;
+    color: var(--clr-text-second);
+    font-size: 2rem;
+  }
+
   .form-container {
+    position: absolute;
     display: flex;
     flex-direction: column;
     width: 90vw;
     max-width: 400px;
     padding: 60px 40px;
+    top: 8rem;
     gap: 30px;
     background: var(--clr-bg-glass);
     border: 1px solid var(--clr-bg-light-trans);
-    border-radius: 20px;
-    transform: translateY(-12vh);
+    border-radius: 10px;
     justify-content: center;
     align-items: center;
 

@@ -14,8 +14,19 @@
     gap: 30px;
     background-color: var(--clr-bg-light3);
     box-shadow: var(--clr-box-shadow2);
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
+
+    .hamburger-menu {
+      display: none;
+      color: var(--clr-text1);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    .hamburger-menu:hover {
+      color: var(--clr-action);
+    }
 
     .account-info {
       position: relative;
@@ -119,12 +130,15 @@
   .col2 {
     display: flex;
     padding: 0 40px 10px;
+    gap: 20px;
     justify-content: space-between;
     align-items: center;
 
     .sorting-container {
       display: flex;
+      flex: 1;
       gap: 10px;
+      overflow-x: scroll;
 
       .sort-reverse {
         font-size: 1.3rem;
@@ -133,7 +147,8 @@
 
       .sort-reverse,
       .sort-menu {
-        padding: 10px;
+        padding: 6px 10px;
+        white-space: nowrap;
         background-color: var(--clr-action2);
         border-radius: 5px;
         cursor: pointer;
@@ -154,9 +169,10 @@
     button.add-note-btn {
       display: flex;
       gap: 10px;
+      color: var(--clr-action);
       font-size: 1rem;
       font-weight: 500;
-      color: var(--clr-action);
+      white-space: nowrap;
       background: none;
       border: none;
       justify-content: center;
@@ -172,6 +188,29 @@
 
     button.add-note-btn:hover {
       color: var(--clr-action2);
+    }
+  }
+}
+
+/* Media Query */
+@media screen and (max-width: 992px) {
+  .control-bar-container {
+    .col1 {
+      .hamburger-menu {
+        display: inline;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .control-bar-container {
+    .col1 {
+      .account-info {
+        .profile-detail {
+          display: none;
+        }
+      }
     }
   }
 }

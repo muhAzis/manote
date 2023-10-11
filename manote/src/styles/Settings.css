@@ -1,7 +1,7 @@
 .settings-page {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  flex: 1;
   height: 100%;
   gap: 20px;
   overflow-y: scroll;
@@ -9,25 +9,32 @@
 
   .settings-container {
     display: flex;
-    flex-direction: column;
     width: 100%;
-    max-width: 900px;
-    padding: 20px;
-    color: var(--clr-text1);
-    background-color: var(--clr-bg-light);
-    box-shadow: var(--clr-box-shadow3);
-    border-radius: 10px;
+    padding: 0 20px;
+    justify-content: center;
 
-    h1.page-title {
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--clr-bg-dark-trans2);
-    }
-
-    .system-settings {
+    .settings {
       display: flex;
       flex-direction: column;
-      padding-block: 20px;
-      gap: 20px;
+      width: 100%;
+      max-width: 900px;
+      padding: 20px;
+      color: var(--clr-text1);
+      background-color: var(--clr-bg-light);
+      box-shadow: var(--clr-box-shadow3);
+      border-radius: 10px;
+
+      h1.page-title {
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--clr-bg-dark-trans2);
+      }
+
+      .system-settings {
+        display: flex;
+        flex-direction: column;
+        padding-block: 20px;
+        gap: 20px;
+      }
     }
   }
 }

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Signin.css';
 import DarkModeButton from '../components/DarkModeButton';
 import useSignin from '../hooks/useSignin';
+import CustomLogo from '../components/CustomLogo';
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -25,6 +26,10 @@ const Signin = () => {
 
   return (
     <div className="signin-container">
+      <h3 id="navLogo">
+        <CustomLogo width="30px" color="var(--clr-text-second)" />
+        Manote
+      </h3>
       <DarkModeButton position="absolute" />
       <div className="form-container">
         <h1 className="title">Register</h1>

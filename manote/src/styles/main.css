@@ -38,6 +38,13 @@
   --clr-planet2: white;
   --clr-planet: #ffb703;
   --clr-sky: #90e0ef;
+  --clr-cloud2: #d4f2f8;
+  --clr-cloud1: #84d4e2;
+
+  --clr-acc-main: #f9f9f9;
+  --clr-acc-second: #e0e0e0;
+  --clr-acc-skin: #ffb8b8;
+  --clr-acc-accent2: #7dcef7;
 }
 
 [theme-type='dark'] {
@@ -79,6 +86,11 @@
   --clr-planet2: white;
   --clr-planet: #3e5c76;
   --clr-sky: #1d2d44;
+
+  --clr-acc-main: #25272a;
+  --clr-acc-second: #3b3d42;
+  --clr-acc-skin: #ffb8b8;
+  --clr-acc-accent2: #00a6fb;
 }
 
 * {

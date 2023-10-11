@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Profile.css';
-import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import ControlBar from '../components/ControlBar';
 import useLogout from '../hooks/useLogout';
 
 const Profile = () => {
-  const navigate = useNavigate();
-
   const [cookies, setCookies] = useCookies();
   const { logout, error, isLoading } = useLogout();
 

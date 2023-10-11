@@ -14,6 +14,8 @@ import ConfirmationModal from './components/ConfirmationModal';
 import { useConfirm } from './hooks/useConfirm';
 import NotesContextProvider from './contexts/NotesContext';
 import NotesPage from './pages/NotesPage';
+import NotFound from './pages/NotFound';
+import NavbarContextProvider from './contexts/NavbarContext';
 
 const Default = () => {
   const navigate = useNavigate();
@@ -38,8 +40,10 @@ const App = () => {
   const { settings } = useSettings();
   const { displayConfirm } = useConfirm();
 
+  const urls = ['', 'notes', 'archive', 'profile', 'settings'];
+
   const renderNavbar = () => {
-    if (location.pathname === '/login' || location.pathname === '/signin') {
+    if (!urls.includes(location.pathname.split('/')[1])) {
       return '';
     }
 
@@ -49,20 +53,23 @@ const App = () => {
   return (
     <>
       <NotesContextProvider>
-        {renderNavbar()}
-        <Routes>
-          <Route element={<Login />} path="/login" />
-          <Route element={<Signin />} path="/signin" />
+        <NavbarContextProvider>
+          {renderNavbar()}
+          <Routes>
+            <Route element={<Login />} path="/login" />
+            <Route element={<Signin />} path="/signin" />
+            <Route element={<NotFound />} path="/*" />
 
-          <Route element={<ProtectedRoutes />}>
-            <Route element={<Default />} path="/" />
-            <Route element={<Notes isArchivePage={false} />} path="/notes" />
-            <Route element={<Archive isArchivePage={true} />} path="/archive" />
-            <Route element={<NoteDetail />} path="/notes/:id" />
-            <Route element={<Profile />} path="/profile" />
-            <Route element={<Settings />} path="/settings" />
-          </Route>
-        </Routes>
+            <Route element={<ProtectedRoutes />}>
+              <Route element={<Default />} path="/" />
+              <Route element={<Notes isArchivePage={false} />} path="/notes" />
+              <Route element={<Archive isArchivePage={true} />} path="/archive" />
+              <Route element={<NoteDetail />} path="/notes/:id" />
+              <Route element={<Profile />} path="/profile" />
+              <Route element={<Settings />} path="/settings" />
+            </Route>
+          </Routes>
+        </NavbarContextProvider>
         {settings.notification && <ToastContainer />}
         {settings.confirmation && displayConfirm && <ConfirmationModal />}
       </NotesContextProvider>

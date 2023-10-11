@@ -1,11 +1,15 @@
 .setting-item-container {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   justify-content: space-between;
 
   .setting-info {
     width: 100%;
     max-width: 600px;
+
+    h3.setting-title {
+      color: var(--clr-action);
+    }
   }
 
   .setting-action {

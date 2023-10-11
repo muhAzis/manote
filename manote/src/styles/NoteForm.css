@@ -18,12 +18,12 @@
     flex-direction: column;
     width: 90vw;
     max-width: 500px;
-    padding: 60px 40px;
+    padding: 60px 20px;
     gap: 30px;
     color: var(--clr-text1);
     background-color: var(--clr-bg-light-trans2);
     border: 1px solid var(--clr-bg-light-trans);
-    border-radius: 20px;
+    border-radius: 10px;
     justify-content: center;
     align-items: center;
 
@@ -44,15 +44,16 @@
     form.add-note-form {
       display: flex;
       flex-direction: column;
-      width: 90vw;
+      width: 100%;
       max-width: 400px;
       gap: 30px;
+      align-items: center;
 
       .input-bar,
       .textarea-bar {
         width: 100%;
         padding: 10px;
-        border-radius: 10px;
+        border-radius: 5px;
         outline: none;
         border: none;
         resize: none;

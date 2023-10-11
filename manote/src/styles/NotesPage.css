@@ -1,7 +1,7 @@
 .dashboard-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  flex: 1;
   height: 100%;
   overflow: hidden;
 
@@ -12,7 +12,8 @@
     width: 100%;
     padding: 20px 40px;
     align-content: flex-start;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
     .loading-container {
       display: flex;
@@ -27,6 +28,15 @@
         max-width: 200px;
         max-height: 200px;
       }
+    }
+  }
+}
+
+/* Media Query */
+@media screen and (max-width: 576px) {
+  .dashboard-container {
+    .notes-container {
+      padding: 20px;
     }
   }
 }

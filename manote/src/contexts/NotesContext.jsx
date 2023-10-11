@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useState } from 'react';
 import notesReducer, { notesState } from '../reducers/notesReducer';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -32,6 +32,7 @@ const NotesContextProvider = ({ children }) => {
   };
 
   const getNoteById = async (note_id) => {
+    state.note = '';
     try {
       const response = await axios.get(`/notes/${note_id}`);
 
@@ -45,6 +46,7 @@ const NotesContextProvider = ({ children }) => {
           note: response.data.payload,
         },
       });
+      console.log('new note: ', state.note);
     } catch (error) {
       console.log(error);
     }
@@ -61,7 +63,7 @@ const NotesContextProvider = ({ children }) => {
         return console.log(response.error);
       }
 
-      getNotes(isArchivePage);
+      await getNotes(isArchivePage);
     } catch (error) {
       console.log(error);
     }
@@ -75,9 +77,9 @@ const NotesContextProvider = ({ children }) => {
         return console.log(response.message);
       }
 
-      getNoteById(note_id);
+      await getNoteById(note_id);
       toast.success(`Note "${state.note.title}" has been ${isArchived ? 'unarchived' : 'archived'}!`);
-      getNotes(isArchivePage);
+      await getNotes(isArchivePage);
     } catch (error) {
       console.log(error);
     }
@@ -95,7 +97,7 @@ const NotesContextProvider = ({ children }) => {
         return console.log(response.message);
       }
 
-      getNoteById(note_id);
+      await getNoteById(note_id);
       const updatedNote = state.note;
       toast.success(`Note "${updatedNote.title}" updated!`);
     } catch (error) {

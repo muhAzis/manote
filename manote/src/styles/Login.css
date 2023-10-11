@@ -8,17 +8,28 @@
   justify-content: center;
   align-items: center;
 
+  h3 {
+    position: absolute;
+    display: flex;
+    top: 1rem;
+    left: 2rem;
+    gap: 10px;
+    color: var(--clr-text-second);
+    font-size: 2rem;
+  }
+
   .form-container {
+    position: absolute;
     display: flex;
     flex-direction: column;
     width: 90vw;
     max-width: 400px;
     padding: 60px 40px;
     gap: 30px;
+    top: 8rem;
     background: var(--clr-bg-glass);
     border: 1px solid var(--clr-bg-light-trans);
     border-radius: 10px;
-    transform: translateY(-12vh);
     justify-content: center;
     align-items: center;
 
@@ -54,6 +65,7 @@
           color: var(--clr-text-second);
           font-weight: 700;
           text-decoration: underline;
+          white-space: nowrap;
           cursor: pointer;
         }
       }

@@ -26,11 +26,13 @@ const Settings = () => {
     <div className="settings-page">
       <ControlBar />
       <div className="settings-container">
-        <h1 className="page-title">Settings</h1>
-        <div className="system-settings">
-          {settingsOption.map((setting, i) => (
-            <SettingItem key={i} {...setting} />
-          ))}
+        <div className="settings">
+          <h1 className="page-title">Settings</h1>
+          <div className="system-settings">
+            {settingsOption.map((setting, i) => (
+              <SettingItem key={i} {...setting} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

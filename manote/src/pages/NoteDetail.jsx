@@ -23,7 +23,7 @@ const NoteDetail = () => {
     (async () => {
       await getNoteById(id);
     })();
-  });
+  }, []);
 
   const onDelete = async () => {
     if (settings.confirmation) {

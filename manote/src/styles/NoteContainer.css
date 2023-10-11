@@ -1,7 +1,9 @@
 .note-container {
   position: relative;
-  width: 32%;
-  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 500px;
   color: var(--clr-text1);
   background-color: var(--clr-bg-light);
   box-shadow: var(--clr-box-shadow3);
@@ -52,6 +54,7 @@
   }
 
   .row2 {
+    flex: 1;
     height: 140px;
     padding: 16px 20px;
 
@@ -110,5 +113,18 @@
     background-color: var(--clr-bg-dark-trans);
     backdrop-filter: blur(4px);
     z-index: 2;
+  }
+}
+
+/* Media Query */
+@media screen and (max-width: 1400px) {
+  .note-container {
+    min-width: 400px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .note-container {
+    min-width: 300px;
   }
 }

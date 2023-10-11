@@ -6,11 +6,15 @@ import useNotes from '../hooks/useNotes';
 import { useLocation, useNavigate } from 'react-router-dom';
 import NoteForm from '../pages/NoteForm';
 import useLogout from '../hooks/useLogout';
+import useNavbar from '../hooks/useNavbar';
 
 const ControlBar = () => {
   const [cookies, setCookies] = useCookies();
   const location = useLocation();
   const navigate = useNavigate();
+  const { setClosed } = useNavbar();
+
+  const windowWidth = window.innerWidth;
 
   const { logout, error, isLoading } = useLogout();
   const { notes, sortNotes, getNotes } = useNotes();
@@ -53,6 +57,7 @@ const ControlBar = () => {
     <>
       <div className="control-bar-container">
         <div className="col1">
+          <i className="bi bi-list hamburger-menu" onClick={() => setClosed(false)}></i>
           <SearchBar />
           <div className="account-info">
             <i className="bi bi-person-circle profile-pic"></i>
@@ -86,7 +91,8 @@ const ControlBar = () => {
               ))}
             </div>
             <button className="add-note-btn" onClick={() => setDisplayForm(true)}>
-              <i className="bi bi-plus-circle"></i>Add new note
+              <i className="bi bi-plus-circle"></i>
+              {windowWidth > 576 && 'Add new note'}
             </button>
           </div>
         ) : (

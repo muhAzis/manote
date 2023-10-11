@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  overflow: hidden;
 
   .dark {
     left: 0;
@@ -66,5 +67,47 @@
     height: 15%;
     bottom: 0.4rem;
     left: 0.7rem;
+  }
+
+  .cloud {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    fill: var(--clr-cloud2);
+    transition: all 0.8s;
+  }
+
+  .cloud1 {
+    bottom: 0.4rem;
+    fill: var(--clr-cloud1);
+  }
+
+  .cloud.dark {
+    transform: translateY(120%);
+  }
+
+  .star {
+    position: absolute;
+    opacity: 0;
+    transition: all 1s;
+  }
+
+  .star.dark {
+    opacity: 1;
+  }
+
+  .star1 {
+    top: 0.4rem;
+    left: 0.6rem;
+  }
+
+  .star2 {
+    top: 1.2rem;
+    left: 1.4rem;
+  }
+
+  .star3 {
+    bottom: 0.4rem;
+    left: 0.6rem;
   }
 }
