@@ -3,6 +3,7 @@
   display: flex;
   width: 100vw;
   height: 100vh;
+  padding: 20px;
   top: 0;
   left: 0;
   background-color: var(--clr-bg-dark-trans);
@@ -10,64 +11,69 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
+}
 
-  .confirmation-box {
-    display: flex;
-    flex-direction: column;
-    padding: 40px;
-    color: var(--clr-text1);
-    background-color: var(--clr-bg-light);
-    border-radius: 10px;
-    box-shadow: var(--clr-box-shadow);
-    justify-content: center;
-    align-items: center;
+.confirmation-container .confirmation-box {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  color: var(--clr-text1);
+  background-color: var(--clr-bg-light);
+  border-radius: 10px;
+  box-shadow: var(--clr-box-shadow);
+  justify-content: center;
+  align-items: center;
+}
 
-    i {
-      padding: 4px;
-      margin-bottom: 10px;
-      color: var(--clr-danger);
-      font-size: 3rem;
-      line-height: 0;
-      background-color: var(--clr-danger3);
-      border-radius: 200px;
-    }
+.confirmation-container .confirmation-box i {
+  padding: 4px;
+  margin-bottom: 10px;
+  color: var(--clr-danger);
+  font-size: 3rem;
+  line-height: 0;
+  background-color: var(--clr-danger3);
+  border-radius: 200px;
+}
 
-    p.note-title {
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
+.confirmation-container .confirmation-box p.note-title {
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-align: center;
+}
 
-    .option-box {
-      margin-top: 40px;
+.confirmation-container .confirmation-box p.text {
+  text-align: center;
+}
 
-      .option-btn {
-        width: 100px;
-        padding-block: 10px;
-        color: var(--clr-text-second3);
-        font-weight: 700;
-        border: none;
-        transition: all 0.2s;
-        cursor: pointer;
-      }
+.confirmation-container .confirmation-box .option-box {
+  margin-top: 40px;
+}
 
-      .yes-btn {
-        color: var(--clr-danger);
-        border-radius: 5px 0 0 5px;
-      }
+.confirmation-container .confirmation-box .option-box .option-btn {
+  width: 100px;
+  padding-block: 10px;
+  color: var(--clr-text-second3);
+  font-weight: 700;
+  border: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
 
-      .cancel-btn {
-        border-radius: 0 5px 5px 0;
-      }
+.confirmation-container .confirmation-box .option-box .yes-btn {
+  color: var(--clr-danger);
+  border-radius: 5px 0 0 5px;
+}
 
-      .yes-btn:hover {
-        color: var(--clr-text-second);
-        background-color: var(--clr-danger);
-      }
+.confirmation-container .confirmation-box .option-box .cancel-btn {
+  border-radius: 0 5px 5px 0;
+}
 
-      .cancel-btn:hover {
-        color: var(--clr-text-second);
-        background-color: var(--clr-text-second3);
-      }
-    }
-  }
+.confirmation-container .confirmation-box .option-box .yes-btn:hover {
+  color: var(--clr-text-second);
+  background-color: var(--clr-danger);
+}
+
+.confirmation-container .confirmation-box .option-box .cancel-btn:hover {
+  color: var(--clr-text-second);
+  background-color: var(--clr-text-second3);
 }
