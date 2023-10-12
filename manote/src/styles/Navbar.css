@@ -7,103 +7,103 @@ nav {
   transition: all 0.2s;
   overflow-x: hidden;
   z-index: 99;
+}
 
-  .col1 {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    justify-content: center;
+nav .col1 {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+}
 
-    #navLogo {
-      position: relative;
-      display: flex;
-      width: fit-content;
-      padding: 15px 80px 15px 40px;
-      gap: 10px;
-      color: var(--clr-text-second2);
-      align-items: center;
+nav .col1 #navLogo {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  padding: 15px 80px 15px 40px;
+  gap: 10px;
+  color: var(--clr-text-second2);
+  align-items: center;
+}
 
-      h3 {
-        font-size: 2rem;
-        opacity: 1;
-        transition: all 0.2s;
-      }
+nav .col1 #navLogo h3 {
+  font-size: 2rem;
+  opacity: 1;
+  transition: all 0.2s;
+}
 
-      h3.closed {
-        opacity: 0;
-      }
+nav .col1 #navLogo h3.closed {
+  opacity: 0;
+}
 
-      i.show-btn {
-        position: absolute;
-        right: 1rem;
-        color: var(--clr-text-second);
-        font-size: 1.4rem;
-        cursor: pointer;
-      }
+nav .col1 #navLogo i.show-btn {
+  position: absolute;
+  right: 1rem;
+  color: var(--clr-text-second);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
 
-      i.show-btn:hover {
-        color: var(--clr-main2);
-      }
-    }
+nav .col1 #navLogo i.show-btn:hover {
+  color: var(--clr-main2);
+}
 
-    ul.navbar-menu {
-      display: flex;
-      flex-direction: column;
-      list-style: none;
+nav .col1 ul.navbar-menu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
 
-      li span {
-        position: relative;
-        display: flex;
-        padding-block: 15px;
-        padding-inline: 40px 80px;
-        gap: 20px;
-        color: var(--clr-text-second-trans);
-        text-decoration: none;
-        transition: all 0.2s;
-        align-items: center;
-        cursor: pointer;
+nav .col1 ul.navbar-menu li span {
+  position: relative;
+  display: flex;
+  padding-block: 15px;
+  padding-inline: 40px 80px;
+  gap: 20px;
+  color: var(--clr-text-second-trans);
+  text-decoration: none;
+  transition: all 0.2s;
+  align-items: center;
+  cursor: pointer;
+}
 
-        i {
-          font-size: 1.6rem;
-        }
+nav .col1 ul.navbar-menu li span i {
+  font-size: 1.6rem;
+}
 
-        p {
-          opacity: 1;
-          transition: all 0.2s;
-        }
+nav .col1 ul.navbar-menu li span p {
+  opacity: 1;
+  transition: all 0.2s;
+}
 
-        p.closed {
-          opacity: 0;
-        }
-      }
+nav .col1 ul.navbar-menu li span p.closed {
+  opacity: 0;
+}
 
-      li span.inactive:hover {
-        color: var(--clr-text-second2);
-      }
+nav .col1 ul.navbar-menu li span.inactive:hover {
+  color: var(--clr-text-second2);
+}
 
-      li span.active {
-        color: var(--clr-text-second2);
-        font-weight: 700;
-      }
+nav .col1 ul.navbar-menu li span.active {
+  color: var(--clr-text-second2);
+  font-weight: 700;
+}
 
-      li span.active::before {
-        content: '';
-        position: absolute;
-        width: 6px;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: var(--clr-text-second2);
-        border-radius: 0 10px 10px 0;
-      }
-    }
-  }
+nav .col1 ul.navbar-menu li span.active::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--clr-text-second2);
+  border-radius: 0 10px 10px 0;
+}
 
-  .col2 {
-    display: flex;
-    padding: 40px 0;
-    justify-content: center;
-  }
+nav .col2 {
+  display: flex;
+  padding: 40px 0;
+  justify-content: center;
 }
 
 nav.closed {

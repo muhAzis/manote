@@ -7,85 +7,85 @@
   background-color: var(--clr-main);
   justify-content: center;
   align-items: center;
+}
 
-  h3 {
-    position: absolute;
-    display: flex;
-    top: 1rem;
-    left: 2rem;
-    gap: 10px;
-    color: var(--clr-text-second);
-    font-size: 2rem;
-  }
+.login-container h3 {
+  position: absolute;
+  display: flex;
+  top: 1rem;
+  left: 2rem;
+  gap: 10px;
+  color: var(--clr-text-second);
+  font-size: 2rem;
+}
 
-  .form-container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    width: 90vw;
-    max-width: 400px;
-    padding: 60px 40px;
-    gap: 30px;
-    top: 8rem;
-    background: var(--clr-bg-glass);
-    border: 1px solid var(--clr-bg-light-trans);
-    border-radius: 10px;
-    justify-content: center;
-    align-items: center;
+.login-container .form-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  max-width: 400px;
+  padding: 60px 40px;
+  gap: 30px;
+  top: 8rem;
+  background: var(--clr-bg-glass);
+  border: 1px solid var(--clr-bg-light-trans);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
 
-    .login-form {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      gap: 15px;
-      justify-content: center;
-      align-items: center;
+.login-container .form-container .login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
 
-      .input-bar {
-        width: 100%;
-        padding: 10px;
-        border-radius: 5px;
-        outline: none;
-        border: none;
-      }
+.login-container .form-container .login-form .input-bar {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
 
-      p.error-message {
-        padding: 4px 20px;
-        color: var(--clr-text-second);
-        font-size: 0.9rem;
-        font-weight: 700;
-        background-color: var(--clr-danger);
-        border-radius: 6px;
-      }
+.login-container .form-container .login-form p.error-message {
+  padding: 4px 20px;
+  color: var(--clr-text-second);
+  font-size: 0.9rem;
+  font-weight: 700;
+  background-color: var(--clr-danger);
+  border-radius: 6px;
+}
 
-      p {
-        text-align: center;
+.login-container .form-container .login-form p {
+  text-align: center;
+}
 
-        span {
-          color: var(--clr-text-second);
-          font-weight: 700;
-          text-decoration: underline;
-          white-space: nowrap;
-          cursor: pointer;
-        }
-      }
+.login-container .form-container .login-form p span {
+  color: var(--clr-text-second);
+  font-weight: 700;
+  text-decoration: underline;
+  white-space: nowrap;
+  cursor: pointer;
+}
 
-      button {
-        margin-top: 20px;
-        padding: 10px 40px;
-        color: var(--clr-text-second);
-        font-size: 1rem;
-        font-weight: 700;
-        background-color: var(--clr-accent);
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.2s;
-      }
+.login-container .form-container .login-form button {
+  margin-top: 20px;
+  padding: 10px 40px;
+  color: var(--clr-text-second);
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: var(--clr-accent);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
 
-      button:hover {
-        background-color: var(--clr-accent2);
-      }
-    }
-  }
+.login-container .form-container .login-form button:hover {
+  background-color: var(--clr-accent2);
 }

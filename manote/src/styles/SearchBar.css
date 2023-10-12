@@ -6,21 +6,21 @@
   background-color: var(--clr-bg-light2);
   border-radius: 30px;
   box-shadow: var(--clr-box-shadow3);
+}
 
-  .input-bar {
-    width: 100%;
-    color: var(--clr-text1);
-    font-size: 1rem;
-    background-color: transparent;
-    border: none;
-    outline: none;
-  }
+.searchbar-container .input-bar {
+  width: 100%;
+  color: var(--clr-text1);
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
 
-  i {
-    padding: 0;
-    font-size: 1.2rem;
-    color: var(--clr-text1);
-    opacity: 0.5;
-    line-height: 0;
-  }
+.searchbar-container i {
+  padding: 0;
+  font-size: 1.2rem;
+  color: var(--clr-text1);
+  opacity: 0.5;
+  line-height: 0;
 }

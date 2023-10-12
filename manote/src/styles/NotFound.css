@@ -7,27 +7,27 @@
   background-color: var(--clr-acc-main);
   justify-content: center;
   align-items: center;
+}
 
-  svg.not-found {
-    width: 90%;
-    max-width: 700px;
-    margin-bottom: 40px;
-  }
+.not-found-page svg.not-found {
+  width: 90%;
+  max-width: 700px;
+  margin-bottom: 40px;
+}
 
-  p.not-found-desc {
-    margin-bottom: 20px;
-    color: var(--clr-acc-accent2);
-    font-size: 1.4rem;
-    font-weight: 700;
-  }
+.not-found-page p.not-found-desc {
+  margin-bottom: 20px;
+  color: var(--clr-acc-accent2);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
 
-  p.redirect {
-    color: var(--clr-text1);
-    text-decoration: underline;
-    cursor: pointer;
-  }
+.not-found-page p.redirect {
+  color: var(--clr-text1);
+  text-decoration: underline;
+  cursor: pointer;
+}
 
-  p.redirect:hover {
-    color: var(--clr-action);
-  }
+.not-found-page p.redirect:hover {
+  color: var(--clr-action);
 }

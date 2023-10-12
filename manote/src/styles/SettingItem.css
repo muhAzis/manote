@@ -2,56 +2,56 @@
   display: flex;
   gap: 20px;
   justify-content: space-between;
+}
 
-  .setting-info {
-    width: 100%;
-    max-width: 600px;
+.setting-item-container .setting-info {
+  width: 100%;
+  max-width: 600px;
+}
 
-    h3.setting-title {
-      color: var(--clr-action);
-    }
-  }
+.setting-item-container .setting-info h3.setting-title {
+  color: var(--clr-action);
+}
 
-  .setting-action {
-    display: flex;
-    align-items: center;
+.setting-item-container .setting-action {
+  display: flex;
+  align-items: center;
+}
 
-    .toggle-btn {
-      position: relative;
-      width: 60px;
-      height: 30px;
-      padding: 4px;
-      background-color: var(--clr-text2);
-      border-radius: 50px;
-      transition: all 0.2s;
-      cursor: pointer;
+.setting-item-container .setting-action .toggle-btn {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  padding: 4px;
+  background-color: var(--clr-text2);
+  border-radius: 50px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
 
-      .toggler {
-        position: absolute;
-        width: 22px;
-        height: 22px;
-        left: 4px;
-        margin-inline: 0 auto;
-        background-color: var(--clr-bg-light);
-        border-radius: 50%;
-        transition: all 0.2s;
-      }
-    }
+.setting-item-container .setting-action .toggle-btn .toggler {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  left: 4px;
+  margin-inline: 0 auto;
+  background-color: var(--clr-bg-light);
+  border-radius: 50%;
+  transition: all 0.2s;
+}
 
-    .toggle-btn:hover {
-      background-color: var(--clr-text3);
-    }
+.setting-item-container .setting-action .toggle-btn:hover {
+  background-color: var(--clr-text3);
+}
 
-    .active {
-      background-color: var(--clr-action);
+.setting-item-container .setting-action .active {
+  background-color: var(--clr-action);
+}
 
-      .toggler {
-        left: 34px;
-      }
-    }
+.setting-item-container .setting-action .active .toggler {
+  left: 34px;
+}
 
-    .active:hover {
-      background-color: var(--clr-action2);
-    }
-  }
+.setting-item-container .setting-action .active:hover {
+  background-color: var(--clr-action2);
 }

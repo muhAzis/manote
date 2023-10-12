@@ -7,20 +7,20 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
 
-  svg {
-    width: 90%;
-    max-width: 400px;
+.empty-shelf-container svg {
+  width: 90%;
+  max-width: 400px;
+}
 
-    * {
-      transition: all 0.2s;
-    }
-  }
+.empty-shelf-container svg * {
+  transition: all 0.2s;
+}
 
-  p {
-    color: var(--clr-acc-accent2);
-    font-size: 1rem;
-    font-weight: 700;
-    text-align: center;
-  }
+.empty-shelf-container p {
+  color: var(--clr-acc-accent2);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
 }

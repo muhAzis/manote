@@ -11,80 +11,80 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
+}
 
-  .form-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 90vw;
-    max-width: 500px;
-    padding: 60px 20px;
-    gap: 30px;
-    color: var(--clr-text1);
-    background-color: var(--clr-bg-light-trans2);
-    border: 1px solid var(--clr-bg-light-trans);
-    border-radius: 10px;
-    justify-content: center;
-    align-items: center;
+.add-note-form-container .form-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  max-width: 500px;
+  padding: 60px 20px;
+  gap: 30px;
+  color: var(--clr-text1);
+  background-color: var(--clr-bg-light-trans2);
+  border: 1px solid var(--clr-bg-light-trans);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
 
-    i.close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      color: var(--clr-danger);
-      font-size: 2rem;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
+.add-note-form-container .form-container i.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--clr-danger);
+  font-size: 2rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
 
-    i.close-btn:hover {
-      color: var(--clr-danger2);
-    }
+.add-note-form-container .form-container i.close-btn:hover {
+  color: var(--clr-danger2);
+}
 
-    form.add-note-form {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      max-width: 400px;
-      gap: 30px;
-      align-items: center;
+.add-note-form-container .form-container form.add-note-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  gap: 30px;
+  align-items: center;
+}
 
-      .input-bar,
-      .textarea-bar {
-        width: 100%;
-        padding: 10px;
-        border-radius: 5px;
-        outline: none;
-        border: none;
-        resize: none;
-      }
+.add-note-form-container .form-container form.add-note-form .input-bar,
+.add-note-form-container .form-container form.add-note-form .textarea-bar {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  resize: none;
+}
 
-      .input-bar:focus + p {
-        display: block;
-      }
+.add-note-form-container .form-container form.add-note-form .input-bar:focus + p {
+  display: block;
+}
 
-      p.title-limit {
-        display: none;
-        margin-top: -20px;
-        color: greenyellow;
-        font-size: 0.9rem;
-      }
+.add-note-form-container .form-container form.add-note-form p.title-limit {
+  display: none;
+  margin-top: -20px;
+  color: greenyellow;
+  font-size: 0.9rem;
+}
 
-      button {
-        padding: 10px 40px;
-        color: white;
-        font-size: 1rem;
-        font-weight: 700;
-        background-color: var(--clr-action);
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.2s;
-      }
+.add-note-form-container .form-container form.add-note-form button {
+  padding: 10px 40px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: var(--clr-action);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
 
-      button:hover {
-        background-color: var(--clr-action2);
-      }
-    }
-  }
+.add-note-form-container .form-container form.add-note-form button:hover {
+  background-color: var(--clr-action2);
 }

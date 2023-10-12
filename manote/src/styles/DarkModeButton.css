@@ -11,103 +11,103 @@
   align-items: center;
   cursor: pointer;
   overflow: hidden;
+}
 
-  .dark {
-    left: 0;
-    transform: none;
-  }
+.dark-mode-btn .dark {
+  left: 0;
+  transform: none;
+}
 
-  .toggle-dark-mode {
-    position: absolute;
-    display: flex;
-    width: 30px;
-    height: 30px;
-    top: 5px;
-    left: 5px;
-    color: var(--clr-planet2);
-    font-size: 1.6rem;
-    line-height: 0;
-    background-color: var(--clr-planet);
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s;
-    overflow: hidden;
-  }
+.dark-mode-btn .toggle-dark-mode {
+  position: absolute;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  left: 5px;
+  color: var(--clr-planet2);
+  font-size: 1.6rem;
+  line-height: 0;
+  background-color: var(--clr-planet);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  overflow: hidden;
+}
 
-  .dark-mode {
-    left: 100%;
-    transform: translateX(-35px);
-  }
+.dark-mode-btn .dark-mode {
+  left: 100%;
+  transform: translateX(-35px);
+}
 
-  .moon-hole {
-    position: absolute;
-    display: inline;
-    background-color: var(--clr-planet-accent);
-    border-radius: 50%;
-    transition: all 0.2s;
-  }
+.dark-mode-btn .moon-hole {
+  position: absolute;
+  display: inline;
+  background-color: var(--clr-planet-accent);
+  border-radius: 50%;
+  transition: all 0.2s;
+}
 
-  .hole1 {
-    width: 40%;
-    height: 40%;
-    top: 0.2rem;
-    left: 0.3rem;
-  }
+.dark-mode-btn .hole1 {
+  width: 40%;
+  height: 40%;
+  top: 0.2rem;
+  left: 0.3rem;
+}
 
-  .hole2 {
-    width: 25%;
-    height: 25%;
-    top: 0.8rem;
-    left: 1.3rem;
-  }
+.dark-mode-btn .hole2 {
+  width: 25%;
+  height: 25%;
+  top: 0.8rem;
+  left: 1.3rem;
+}
 
-  .hole3 {
-    width: 15%;
-    height: 15%;
-    bottom: 0.4rem;
-    left: 0.7rem;
-  }
+.dark-mode-btn .hole3 {
+  width: 15%;
+  height: 15%;
+  bottom: 0.4rem;
+  left: 0.7rem;
+}
 
-  .cloud {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    fill: var(--clr-cloud2);
-    transition: all 0.8s;
-  }
+.dark-mode-btn .cloud {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  fill: var(--clr-cloud2);
+  transition: all 0.8s;
+}
 
-  .cloud1 {
-    bottom: 0.4rem;
-    fill: var(--clr-cloud1);
-  }
+.dark-mode-btn .cloud1 {
+  bottom: 0.4rem;
+  fill: var(--clr-cloud1);
+}
 
-  .cloud.dark {
-    transform: translateY(120%);
-  }
+.dark-mode-btn .cloud.dark {
+  transform: translateY(120%);
+}
 
-  .star {
-    position: absolute;
-    opacity: 0;
-    transition: all 1s;
-  }
+.dark-mode-btn .star {
+  position: absolute;
+  opacity: 0;
+  transition: all 1s;
+}
 
-  .star.dark {
-    opacity: 1;
-  }
+.dark-mode-btn .star.dark {
+  opacity: 1;
+}
 
-  .star1 {
-    top: 0.4rem;
-    left: 0.6rem;
-  }
+.dark-mode-btn .star1 {
+  top: 0.4rem;
+  left: 0.6rem;
+}
 
-  .star2 {
-    top: 1.2rem;
-    left: 1.4rem;
-  }
+.dark-mode-btn .star2 {
+  top: 1.2rem;
+  left: 1.4rem;
+}
 
-  .star3 {
-    bottom: 0.4rem;
-    left: 0.6rem;
-  }
+.dark-mode-btn .star3 {
+  bottom: 0.4rem;
+  left: 0.6rem;
 }
