@@ -68,7 +68,7 @@ const Login = () => {
             </p>
             <button type="submit">{isLoading ? <lord-icon src="https://cdn.lordicon.com/xjovhxra.json" trigger="loop" colors="primary:#ffffff,secondary:#ffffff" style={{ width: '20px', height: '20px' }}></lord-icon> : 'Login'}</button>
           </form>
-          {/* <GoogleLogin onSuccess={(response) => onGoogleLogin(response.credential)} onError={() => console.log('Login Failed')} /> */}
+          <GoogleLogin onSuccess={(response) => onGoogleLogin(response.credential)} onError={() => console.log('Login Failed')} />
           {/* <button type="button" onClick={googleLogin}>
             Login with Google
           </button> */}
