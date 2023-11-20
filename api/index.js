@@ -7,7 +7,7 @@ import routes from './src/routes/routes.js';
 const app = express();
 const port = 5000;
 
-app.use(cors({ credentials: true, origin: 'https://manote.vercel.app' }));
+app.use(cors({ credentials: true, origin: ['https://manote.vercel.app', 'http://localhost:5173', 'https://cloudinary.com'] }));
 app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
 app.use(routes);
