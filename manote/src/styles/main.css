@@ -4,17 +4,20 @@
   --font-default: 'Montserrat', sans-serif;
 
   --clr-text-second-trans: rgba(255, 255, 255, 0.6);
+  --clr-text-second4: #00a6fb;
   --clr-text-second3: #474747;
   --clr-text-second2: white;
   --clr-text-second: white;
   --clr-text3: #d3d3d3;
   --clr-text2: #b1b1b1;
   --clr-text1: #474747;
-  --clr-main-dark: #003554;
+  --clr-sky-dark: #00446b;
+  --clr-sky-light: #00a6fb;
+  --clr-action3: #e3f3fc;
   --clr-main2: #7dcef7;
   --clr-main: #00a6fb;
   --clr-action2: #7dcef7;
-  --clr-action: #00a6fb;
+  --clr-action: rgb(0, 166, 251);
   --clr-accent2: #ffa970;
   --clr-accent: #ff6700;
   --clr-danger3: #f5c9cc;
@@ -27,8 +30,11 @@
   --clr-bg-glass: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
   --clr-bg-light-trans2: rgba(255, 255, 255, 0.2);
   --clr-bg-light-trans: rgba(255, 255, 255, 0.6);
+  --clr-bg-dark-trans3: rgba(0, 0, 0, 0.08);
   --clr-bg-dark-trans2: rgba(0, 0, 0, 0.2);
   --clr-bg-dark-trans: rgba(0, 0, 0, 0.4);
+  --clr-bg-syntax-highlight: #0a364d;
+  --clr-box-shadow4: 0 0 10px 1px rgba(0, 0, 0, 0.14);
   --clr-box-shadow3: 0 0 10px 1px rgba(0, 0, 0, 0.08);
   --clr-box-shadow2: 0 0 10px 1px rgba(0, 0, 0, 0.2);
   --clr-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
@@ -37,6 +43,7 @@
 
   --clr-planet2: white;
   --clr-planet: #ffb703;
+  --clr-planet-shade: rgba(255, 255, 255, 0.2);
   --clr-sky: #90e0ef;
   --clr-cloud2: #d4f2f8;
   --clr-cloud1: #84d4e2;
@@ -45,37 +52,52 @@
   --clr-acc-second: #e0e0e0;
   --clr-acc-skin: #ffb8b8;
   --clr-acc-accent2: #7dcef7;
+
+  --fz-h1: 2rem;
+  --fz-h2: 1.8rem;
+  --fz-h3: 1.5rem;
+  --fz-h4: 1.2rem;
+  --fz-h5: 0.8rem;
+  --fz-p: 1rem;
+  --fz-div: 1rem;
+  --fz-span: 1rem;
+  --fz-icon1: 1rem;
+  --fz-icon2: 1.4rem;
+
+  --height-sky: 0%;
 }
 
 [theme-type='dark'] {
   --font-default: 'Montserrat', sans-serif;
 
   --clr-text-second-trans: rgba(255, 255, 255, 0.6);
+  --clr-text-second4: white;
   --clr-text-second3: #474747;
   --clr-text-second2: #00a6fb;
   --clr-text-second: white;
   --clr-text3: #d3d3d3;
   --clr-text2: #6b6b6b;
   --clr-text1: white;
-  --clr-main-dark: #003554;
   --clr-main2: #7dcef7;
-  --clr-main: #25272a;
+  --clr-main: #111c2b;
+  --clr-action3: #42342a;
   --clr-action2: #7dcef7;
   --clr-action: #00a6fb;
   --clr-accent2: #ffa970;
-  --clr-accent: #ff6700;
+  --clr-accent: rgb(255, 103, 0);
   --clr-danger3: #f5c9cc;
   --clr-danger2: #e43d48;
   --clr-danger: #c1121f;
   --clr-green: #7ae582;
-  --clr-bg-light3: #2b2d31;
-  --clr-bg-light2: #202225;
-  --clr-bg-light: #25272a;
+  --clr-bg-light3: #1d2d44;
+  --clr-bg-light2: #162336;
+  --clr-bg-light: #1d2d44;
   --clr-bg-glass: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
   --clr-bg-light-trans2: rgba(255, 255, 255, 0.2);
   --clr-bg-light-trans: rgba(255, 255, 255, 0.6);
   --clr-bg-dark-trans2: rgba(0, 0, 0, 0.2);
   --clr-bg-dark-trans: rgba(0, 0, 0, 0.4);
+  --clr-bg-syntax-highlight: #235570;
   --clr-box-shadow3: 0 0 10px 1px rgba(20, 20, 20, 0.08);
   --clr-box-shadow2: 0 0 10px 1px rgba(20, 20, 20, 0.2);
   --clr-box-shadow: 0 0 10px 1px rgba(20, 20, 20, 0.4);
@@ -85,19 +107,23 @@
   --clr-planet-accent: #2c455a;
   --clr-planet2: white;
   --clr-planet: #3e5c76;
+  --clr-planet-shade: rgba(62, 92, 118, 0.2);
   --clr-sky: #1d2d44;
 
-  --clr-acc-main: #25272a;
-  --clr-acc-second: #3b3d42;
+  --clr-acc-main: #111c2b;
+  --clr-acc-second: #1d2d44;
   --clr-acc-skin: #ffb8b8;
   --clr-acc-accent2: #00a6fb;
+
+  --height-sky: -100%;
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, color 0.2s, fill 0.2s;
+  scroll-behavior: smooth;
 }
 
 window {
@@ -105,11 +131,13 @@ window {
 }
 
 body {
+  height: 100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--clr-bg-light2);
+  overflow-y: hidden;
 }
 
 code {
@@ -119,18 +147,80 @@ code {
 #root {
   display: flex;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  overflow-y: hidden;
 }
 
 #root,
 input,
 button {
   font-family: var(--font-default);
+  background-color: transparent;
 }
 
 .main-container {
   display: flex;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-color: var(--clr-bg-light2);
+  overflow-y: hidden;
+}
+
+.main-contents {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: var(--fz-h1);
+}
+
+h2 {
+  font-size: var(--fz-h2);
+}
+
+h3 {
+  font-size: var(--fz-h3);
+}
+
+h4 {
+  font-size: var(--fz-h4);
+}
+
+h5 {
+  font-size: var(--fz-h5);
+}
+
+p {
+  font-size: var(--fz-p);
+}
+
+div {
+  font-size: var(--fz-div);
+}
+
+span {
+  font-size: var(--fz-div);
+}
+
+i {
+  font-size: var(--fz-icon1);
+}
+
+@media screen and (max-width: 576px) {
+  :root {
+    --fz-h1: 1.8rem;
+    --fz-h2: 1.6rem;
+    --fz-h3: 1.2rem;
+    --fz-h4: 1rem;
+    --fz-h5: 0.7rem;
+    --fz-p: 0.8rem;
+    --fz-div: 0.8rem;
+    --fz-span: 1rem;
+    --fz-icon1: 1rem;
+    --fz-icon2: 1.4rem;
+  }
 }

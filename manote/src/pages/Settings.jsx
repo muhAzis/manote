@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Settings.css';
-import ControlBar from '../components/ControlBar';
-import SettingItem from '../components/SettingItem';
+import { SettingGeneralItem, SettingAccountItem } from '../components/SettingItem';
+import { useCookies } from 'react-cookie';
+import UpdateAccount from '../components/UpdateAccount';
 
 const Settings = () => {
+  const [cookies, setCookies] = useCookies();
+
+  const [account, setAccount] = useState({
+    name: 'username',
+    email: 'username@gmail.com',
+  });
+  const [updateAccount, setUpdateAccount] = useState(false);
+  const [updateType, setUpdateType] = useState('');
+
+  useEffect(() => {
+    if (cookies.user) {
+      const { name, email } = cookies.user;
+      setAccount({ name, email });
+    }
+  }, [cookies]);
+
   const settingsOption = [
     {
       type: 'notification',
@@ -23,18 +40,22 @@ const Settings = () => {
   ];
 
   return (
-    <div className="settings-page">
-      <ControlBar />
-      <div className="settings-container">
-        <div className="settings">
-          <h1 className="page-title">Settings</h1>
-          <div className="system-settings">
-            {settingsOption.map((setting, i) => (
-              <SettingItem key={i} {...setting} />
-            ))}
-          </div>
+    <div id="settingsPage">
+      <div className="settings">
+        <div className="general-settings">
+          <h2 className="page-title">General Settings</h2>
+          {settingsOption.map((setting, i) => (
+            <SettingGeneralItem key={i} {...setting} />
+          ))}
+        </div>
+        <div id="accountSettings" className="account-settings">
+          <h2 className="page-title">Account Settings</h2>
+          <SettingAccountItem title={'Username'} value={account.name} update={setUpdateAccount} setType={setUpdateType} type={'name'} />
+          <SettingAccountItem title={'User email'} value={account.email} update={setUpdateAccount} setType={setUpdateType} type={'email'} />
+          <SettingAccountItem title={'User password'} value={account.email} update={setUpdateAccount} setType={setUpdateType} type={'password'} />
         </div>
       </div>
+      {updateAccount && <UpdateAccount updateAccount={setUpdateAccount} type={updateType} />}
     </div>
   );
 };

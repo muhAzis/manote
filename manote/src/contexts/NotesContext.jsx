@@ -9,7 +9,7 @@ export const NotesContext = createContext(notesState);
 const NotesContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(notesReducer, notesState);
 
-  const getNotes = async (isArchived) => {
+  const getNotes = async (isArchived = 'all') => {
     try {
       const response = await axios.get('/notes', { params: { isArchived: isArchived } });
 
@@ -46,7 +46,6 @@ const NotesContextProvider = ({ children }) => {
           note: response.data.payload,
         },
       });
-      console.log('new note: ', state.note);
     } catch (error) {
       console.log(error);
     }
@@ -69,7 +68,7 @@ const NotesContextProvider = ({ children }) => {
     }
   };
 
-  const archiveNote = async (note_id, isArchived, isArchivePage) => {
+  const archiveNote = async (note_id, title, isArchived, isArchivePage) => {
     try {
       const response = await axios.put(`/update/${note_id}`, { isArchived: !isArchived });
 
@@ -78,14 +77,14 @@ const NotesContextProvider = ({ children }) => {
       }
 
       await getNoteById(note_id);
-      toast.success(`Note "${state.note.title}" has been ${isArchived ? 'unarchived' : 'archived'}!`);
+      toast.success(`Note "${title}" has been ${isArchived ? 'unarchived' : 'archived'}!`);
       await getNotes(isArchivePage);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const updateNote = async ({ note_id, title, note }) => {
+  const updateNote = async ({ note_id, title, note }, oldTitle) => {
     try {
       const response = await axios.put(`/update/${note_id}`, {
         title,
@@ -98,8 +97,7 @@ const NotesContextProvider = ({ children }) => {
       }
 
       await getNoteById(note_id);
-      const updatedNote = state.note;
-      toast.success(`Note "${updatedNote.title}" updated!`);
+      toast.success(`Note "${oldTitle}" updated!`);
     } catch (error) {
       console.log(error);
     }
@@ -121,7 +119,21 @@ const NotesContextProvider = ({ children }) => {
 
   const sortNotes = (option, reverse) => {
     if (state.notes.length) {
-      const sortedNotes = [...state.notes].sort((note_a, note_b) => (note_a[option] < note_b[option] ? 1 : -1));
+      const sortedNotes = [...state.notes];
+
+      switch (option) {
+        case 'last_updated':
+          sortedNotes.sort((note_a, note_b) => {
+            const time1 = new Date(note_a[option]).getTime();
+            const time2 = new Date(note_b[option]).getTime();
+            return time1 < time2 ? 1 : -1;
+          });
+          break;
+        case 'title':
+          sortedNotes.sort((note_a, note_b) => (note_a[option] > note_b[option] ? 1 : -1));
+          break;
+      }
+
       if (reverse) {
         sortedNotes.reverse();
       }
@@ -148,6 +160,17 @@ const NotesContextProvider = ({ children }) => {
     }
   };
 
+  const emptyNotes = () => {
+    dispatch({
+      type: 'EMPTY_NOTE',
+      payload: {
+        note: {},
+        notes: [],
+        renderNotes: [],
+      },
+    });
+  };
+
   const values = {
     notes: state.notes,
     renderNotes: state.renderNotes,
@@ -160,6 +183,7 @@ const NotesContextProvider = ({ children }) => {
     deleteNote,
     sortNotes,
     filterNotes,
+    emptyNotes,
   };
 
   return <NotesContext.Provider value={values}>{children}</NotesContext.Provider>;

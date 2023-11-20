@@ -11,6 +11,7 @@
   align-items: center;
   cursor: pointer;
   overflow: hidden;
+  z-index: 1;
 }
 
 .dark-mode-btn .dark {
@@ -30,6 +31,7 @@
   line-height: 0;
   background-color: var(--clr-planet);
   border-radius: 50%;
+  box-shadow: 0 0 0 8px var(--clr-planet-shade), 0 0 0 16px var(--clr-planet-shade), 0 0 0 24px var(--clr-planet-shade);
   justify-content: center;
   align-items: center;
   transition: all 0.2s;

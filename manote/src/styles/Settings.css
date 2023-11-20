@@ -1,40 +1,42 @@
-.settings-page {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  height: 100%;
-  gap: 20px;
-  overflow-y: scroll;
-  align-items: center;
-}
-
-.settings-page .settings-container {
+#settingsPage {
+  position: relative;
   display: flex;
   width: 100%;
-  padding: 0 20px;
+  height: 100%;
+  padding-inline: 20px;
+  align-items: flex-start;
   justify-content: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  /* background-color: red; */
 }
 
-.settings-page .settings-container .settings {
+#settingsPage::-webkit-scrollbar {
+  display: none;
+}
+
+#settingsPage .settings {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 900px;
-  padding: 20px;
+  padding-block: 20px;
+  gap: 20px;
   color: var(--clr-text1);
-  background-color: var(--clr-bg-light);
-  box-shadow: var(--clr-box-shadow3);
   border-radius: 10px;
 }
 
-.settings-page .settings-container .settings h1.page-title {
+#settingsPage .settings h1.page-title {
   padding-bottom: 10px;
   border-bottom: 1px solid var(--clr-bg-dark-trans2);
 }
 
-.settings-page .settings-container .settings .system-settings {
+#settingsPage .settings .general-settings,
+#settingsPage .settings .account-settings {
   display: flex;
   flex-direction: column;
-  padding-block: 20px;
-  gap: 20px;
+  padding: 20px;
+  background-color: var(--clr-bg-light);
+  box-shadow: var(--clr-box-shadow3);
+  border-radius: 5px;
 }

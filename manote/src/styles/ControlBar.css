@@ -15,7 +15,7 @@
   gap: 30px;
   background-color: var(--clr-bg-light3);
   box-shadow: var(--clr-box-shadow2);
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -39,9 +39,13 @@
 }
 
 .control-bar-container .col1 .account-info .profile-pic {
+  width: 35px;
+  height: 35px;
   color: var(--clr-text1);
   font-size: 2.2rem;
   line-height: 0;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .control-bar-container .col1 .account-info .profile-detail {
@@ -56,7 +60,7 @@
   color: var(--clr-text2);
 }
 
-.control-bar-container .col1 .account-info .profile-detail h3.username,
+.control-bar-container .col1 .account-info .profile-detail h4.username,
 .control-bar-container .col1 .account-info .profile-detail h5.email {
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -145,6 +149,12 @@ lord-icon {
   scrollbar-width: none;
 }
 
+.control-bar-container .col2 .sorting-container .sort-reverse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .control-bar-container .col2 .sorting-container::-webkit-scrollbar {
   display: none;
 }
@@ -200,13 +210,25 @@ lord-icon {
 
 /* Media Query */
 @media screen and (max-width: 992px) {
+  .control-bar-container .col1 {
+    justify-content: space-between;
+  }
+
   .control-bar-container .col1 .hamburger-menu {
     display: inline;
+  }
+
+  .control-bar-container .col2 {
+    padding: 0 40px 10px;
   }
 }
 
 @media (max-width: 576px) {
   .control-bar-container .col1 .account-info .profile-detail {
     display: none;
+  }
+
+  .control-bar-container .col2 {
+    padding: 0 10px 10px;
   }
 }

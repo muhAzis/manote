@@ -41,7 +41,7 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
-  const login = async (email, password) => {
+  const login = async ({ email = '', password = '', googleAccount = '' }) => {
     try {
       setIsLoading(true);
       setError('');
@@ -49,6 +49,7 @@ const AuthContextProvider = ({ children }) => {
       const response = await axios.post('/login', {
         email,
         password,
+        googleAccount,
       });
 
       if (response.status !== 201) {
@@ -62,7 +63,7 @@ const AuthContextProvider = ({ children }) => {
       axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.payload}`;
 
       setIsLoading(false);
-      toast.success('Login successful!');
+      toast.success(response.data.message);
 
       navigate('/notes');
     } catch (error) {
@@ -91,12 +92,63 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
+  const updatePicture = async (file) => {
+    try {
+      setIsLoading(true);
+      const response = await axios.post('/user/profile/update-pict', { file });
+
+      if (response.status !== 201) {
+        setIsLoading(false);
+        const { message } = response.response.data;
+        setError(message);
+        toast.error(message);
+        return console.log(message);
+      }
+
+      setIsLoading(false);
+      toast.success('Profile picture updated!');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const updateData = async (type, data, form) => {
+    try {
+      setIsLoading(true);
+      setError('');
+      const response = await axios.post(`/user/profile/update-account/${type}`, data);
+
+      if (response.status !== 201) {
+        setIsLoading(false);
+        const { message } = response.response.data;
+        setError(message);
+        toast.error(message);
+        return console.log(message);
+      }
+
+      axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.payload}`;
+
+      setIsLoading(false);
+      toast.success(response.data.message);
+      form(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const clearError = () => {
+    setError('');
+  };
+
   const values = {
     error,
     isLoading,
     signin,
     login,
     logout,
+    updatePicture,
+    updateData,
+    clearError,
   };
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;

@@ -1,58 +1,108 @@
-.login-container {
+#loginPage {
+  position: relative;
   display: flex;
-  flex-direction: column;
   width: 100vw;
   height: 100vh;
   color: var(--clr-text-second);
-  background-color: var(--clr-main);
-  justify-content: center;
+  background: linear-gradient(to bottom, var(--clr-sky-dark) 0%, var(--clr-sky-light) 100%);
+  align-items: center;
+  overflow-y: hidden;
+}
+
+#loginPage::before {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 200%;
+  left: 0;
+  bottom: var(--height-sky);
+  background: linear-gradient(to bottom, var(--clr-sky-dark) 0%, var(--clr-sky-light) 100%);
+  transition: 1s;
+}
+
+#loginPage .form-container {
+  position: relative;
+  display: flex;
+  flex: 1.5;
+  height: 100vh;
+  justify-content: space-between;
   align-items: center;
 }
 
-.login-container h3 {
-  position: absolute;
-  display: flex;
-  top: 1rem;
-  left: 2rem;
-  gap: 10px;
-  color: var(--clr-text-second);
-  font-size: 2rem;
-}
-
-.login-container .form-container {
-  position: absolute;
+#loginPage .form-container .contents {
+  position: relative;
   display: flex;
   flex-direction: column;
-  width: 90vw;
-  max-width: 400px;
-  padding: 60px 40px;
+  flex: 1;
+  height: 100%;
   gap: 30px;
-  top: 8rem;
-  background: var(--clr-bg-glass);
-  border: 1px solid var(--clr-bg-light-trans);
-  border-radius: 10px;
-  justify-content: center;
+  padding-block: 20px;
+  background-color: var(--clr-bg-light);
   align-items: center;
+  justify-content: center;
+  transition: all 1s;
 }
 
-.login-container .form-container .login-form {
+#loginPage .form-container .contents::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  top: 0;
+  left: -15px;
+  background-color: var(--clr-bg-light);
+  transition: all 1s;
+}
+
+#loginPage .form-container .contents * {
+  z-index: 1;
+}
+
+#loginPage .form-container .contents h1.title {
+  color: var(--clr-text-second4);
+}
+
+#loginPage .form-container .contents .login-form {
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 350px;
+  padding: 20px;
   gap: 15px;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 
-.login-container .form-container .login-form .input-bar {
+#loginPage .form-container .contents .login-form .input-bar {
+  display: flex;
   width: 100%;
   padding: 10px;
+  background-color: var(--clr-text3);
   border-radius: 5px;
+  box-shadow: var(--clr-box-shadow3);
+  justify-content: center;
+  align-items: center;
+}
+
+#loginPage .form-container .contents .login-form .input-bar i {
+  color: var(--clr-text-second3);
+  cursor: pointer;
+}
+
+#loginPage .form-container .contents .login-form .input-bar i:hover {
+  color: var(--clr-action);
+}
+
+#loginPage .form-container .contents .login-form .input-bar input {
+  width: 100%;
+  background-color: transparent;
+  background: none;
   outline: none;
   border: none;
 }
 
-.login-container .form-container .login-form p.error-message {
+#loginPage .form-container .contents .login-form p.error-message {
   padding: 4px 20px;
   color: var(--clr-text-second);
   font-size: 0.9rem;
@@ -61,19 +111,24 @@
   border-radius: 6px;
 }
 
-.login-container .form-container .login-form p {
+#loginPage .form-container .contents .login-form p {
+  color: var(--clr-text1);
   text-align: center;
 }
 
-.login-container .form-container .login-form p span {
-  color: var(--clr-text-second);
+#loginPage .form-container .contents .login-form p span {
+  color: var(--clr-text1);
   font-weight: 700;
   text-decoration: underline;
   white-space: nowrap;
   cursor: pointer;
 }
 
-.login-container .form-container .login-form button {
+#loginPage .form-container .contents .login-form p span:hover {
+  color: var(--clr-action);
+}
+
+#loginPage .form-container .contents .login-form button {
   margin-top: 20px;
   padding: 10px 40px;
   color: var(--clr-text-second);
@@ -86,6 +141,46 @@
   transition: all 0.2s;
 }
 
-.login-container .form-container .login-form button:hover {
+#loginPage .form-container .contents .login-form button:hover {
   background-color: var(--clr-accent2);
+}
+
+/* Media Query */
+@media screen and (max-width: 1200px) {
+  #loginPage .form-container {
+    flex: 2;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #loginPage {
+    flex-direction: column;
+    height: fit-content;
+    overflow-y: scroll;
+  }
+
+  #loginPage .form-container {
+    flex-direction: column;
+    flex: none;
+    width: 100%;
+  }
+
+  #loginPage .form-container .contents {
+    flex: 1;
+    width: 100%;
+  }
+
+  #loginPage .form-container .contents::before {
+    width: 100%;
+    height: 30px;
+    top: -15px;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #loginPage .form-container {
+    height: fit-content;
+    min-height: 100vh;
+  }
 }

@@ -1,0 +1,43 @@
+#userData {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  gap: 5px;
+  color: var(--clr-text1);
+  background-color: var(--clr-bg-light);
+  box-shadow: var(--clr-box-shadow3);
+  border-radius: 5px;
+}
+
+#userData .title {
+  display: flex;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  gap: 10px;
+  border-bottom: 1px solid var(--clr-text2);
+  align-items: center;
+}
+
+#userData .data {
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#userData .data .tag {
+  width: 100px;
+  font-weight: 700;
+}
+
+#userData .data .double-dot {
+  margin-right: 10px;
+}
+
+#userData .data .value {
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

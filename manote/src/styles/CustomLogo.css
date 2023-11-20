@@ -1,0 +1,17 @@
+#customLogo {
+  display: flex;
+  gap: 10px;
+}
+
+#customLogo h3 {
+  color: var(--clr-text-second);
+  font-size: 2rem;
+  opacity: 1;
+  transition: all 0.2s;
+  justify-content: center;
+  align-items: center;
+}
+
+#customLogo h3.closed {
+  opacity: 0;
+}

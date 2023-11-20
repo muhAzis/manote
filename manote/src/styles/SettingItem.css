@@ -1,16 +1,41 @@
 .setting-item-container {
   display: flex;
+  padding-block: 10px;
   gap: 20px;
   justify-content: space-between;
+  border-bottom: 1px solid var(--clr-bg-dark-trans3);
+}
+
+.setting-item-container:last-of-type {
+  border-bottom: none;
 }
 
 .setting-item-container .setting-info {
   width: 100%;
   max-width: 600px;
+  overflow-x: hidden;
 }
 
-.setting-item-container .setting-info h3.setting-title {
+.setting-item-container .setting-info h4.setting-title {
   color: var(--clr-action);
+}
+
+.setting-item-container .setting-info p.account-setting-desc {
+  color: var(--clr-text2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.setting-item-container .setting-info p.change-password-btn {
+  width: fit-content;
+  color: var(--clr-action2);
+  cursor: pointer;
+}
+
+.setting-item-container .setting-info p.change-password-btn:hover {
+  color: var(--clr-action);
+  border-bottom: 1px solid var(--clr-action2);
 }
 
 .setting-item-container .setting-action {
@@ -54,4 +79,33 @@
 
 .setting-item-container .setting-action .active:hover {
   background-color: var(--clr-action2);
+}
+
+.setting-item-container .setting-action button.edit-btn {
+  display: flex;
+  padding: 10px 15px;
+  gap: 5px;
+  color: var(--clr-text-second);
+  font-size: 1rem;
+  background-color: var(--clr-action);
+  border: none;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.setting-item-container .setting-action button.edit-btn:hover {
+  background-color: var(--clr-action2);
+}
+
+/* Media Query */
+@media screen and (max-width: 576px) {
+  .setting-item-container .setting-action .toggle-btn {
+    scale: 0.9;
+  }
+
+  .setting-item-container .setting-action button.edit-btn {
+    padding: 8px;
+  }
 }

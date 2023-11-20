@@ -1,0 +1,122 @@
+#description {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  height: 100vh;
+  max-height: 700px;
+  padding: 60px 20px;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+#description .app-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#description .app-info p.app-description {
+  width: 90%;
+  max-width: 700px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#description .app-info a.to-auth {
+  padding: 10px 40px;
+  margin-top: 20px;
+  color: var(--clr-text-second);
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--clr-text-second);
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+#description .app-info a.to-auth:hover {
+  color: var(--clr-action);
+  background-color: var(--clr-text-second);
+}
+
+#description .contact-info {
+  display: flex;
+  width: 90%;
+  max-width: 700px;
+  /* margin-top: 200px; */
+  gap: 20px;
+  justify-content: space-between;
+}
+
+#description .contact-info a {
+  display: flex;
+  gap: 10px;
+  color: var(--clr-text-second);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 0;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#description .contact-info a:hover {
+  text-decoration: underline;
+}
+
+#description .contact-info a i {
+  font-size: 1.3rem;
+}
+
+/* Media Query */
+@media screen and (max-width: 1200px) {
+  #description .contact-info a {
+    font-size: 1rem;
+  }
+
+  #description .contact-info a i {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #description {
+    flex: none;
+    width: 100%;
+    padding: 60px 10px;
+  }
+
+  #description .contact-info {
+    max-width: 500px;
+  }
+
+  #description .contact-info a {
+    font-size: 1rem;
+  }
+
+  #description .contact-info a i {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #description {
+    max-height: none;
+  }
+
+  #description .contact-info {
+    gap: 30px;
+    justify-content: center;
+  }
+
+  #description .contact-info a {
+    font-size: 1.5rem;
+  }
+
+  #description .contact-info a i {
+    font-size: 1.5rem;
+  }
+}

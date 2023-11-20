@@ -4,13 +4,13 @@ import { useSettings } from '../hooks/useSettings';
 import Cloud from './Cloud';
 import Star from './Star';
 
-const DarkModeButton = ({ position = 'absolute' }) => {
+const DarkModeButton = ({ position = 'absolute', top = '1rem', left = '1rem', bottom = 0, right = 0 }) => {
   const { settings, setSettings } = useSettings();
 
   return (
     <div
       className="dark-mode-btn"
-      style={position !== 'relative' ? { position: [position], top: '1.4rem', right: '3rem' } : {}}
+      style={position !== 'relative' ? { position: [position], top, left, bottom, right } : {}}
       onClick={() =>
         setSettings((prev) => {
           return { ...prev, theme: !prev.theme };

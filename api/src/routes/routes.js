@@ -1,5 +1,18 @@
 import express from 'express';
-import { loginHandler, resgisterHandler, tokenHandler, logoutHandler, userDataHandler, notesDataHandler, noteDataHandler, addNoteHandler, updateNoteHandler, deleteNoteHandler } from '../handlers/request-handler.js';
+import {
+  loginHandler,
+  resgisterHandler,
+  tokenHandler,
+  logoutHandler,
+  updateProfilePict,
+  updateProfileAccount,
+  userDataHandler,
+  notesDataHandler,
+  noteDataHandler,
+  addNoteHandler,
+  updateNoteHandler,
+  deleteNoteHandler,
+} from '../handlers/request-handler.js';
 import { authenticateToken } from '../utils/middlewares.js';
 
 const routes = express.Router();
@@ -19,6 +32,8 @@ routes.delete('/api/logout', logoutHandler);
 
 routes.use(authenticateToken);
 routes.get('/api/user', userDataHandler);
+routes.post('/api/user/profile/update-pict', updateProfilePict);
+routes.post('/api/user/profile/update-account/:type', updateProfileAccount);
 routes.get('/api/notes', notesDataHandler);
 routes.get('/api/notes/:id', noteDataHandler);
 routes.post('/api/add', addNoteHandler);

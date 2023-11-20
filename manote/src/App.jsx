@@ -16,6 +16,9 @@ import NotesContextProvider from './contexts/NotesContext';
 import NotesPage from './pages/NotesPage';
 import NotFound from './pages/NotFound';
 import NavbarContextProvider from './contexts/NavbarContext';
+import WindowSizeContextProvider from './contexts/WindowSizeContext';
+import ControlBar from './components/ControlBar';
+import NoteForm from './pages/NoteForm';
 
 const Default = () => {
   const navigate = useNavigate();
@@ -50,25 +53,40 @@ const App = () => {
     return <Navbar />;
   };
 
+  const renderControlBar = () => {
+    if (!urls.includes(location.pathname.split('/')[1])) {
+      return '';
+    }
+
+    return <ControlBar />;
+  };
+
   return (
     <>
       <NotesContextProvider>
         <NavbarContextProvider>
-          {renderNavbar()}
-          <Routes>
-            <Route element={<Login />} path="/login" />
-            <Route element={<Signin />} path="/signin" />
-            <Route element={<NotFound />} path="/*" />
+          <WindowSizeContextProvider>
+            {renderNavbar()}
+            <div className="main-contents">
+              {renderControlBar()}
+              <Routes>
+                <Route element={<Login />} path="/login" />
+                <Route element={<Signin />} path="/signin" />
+                <Route element={<NotFound />} path="/*" />
 
-            <Route element={<ProtectedRoutes />}>
-              <Route element={<Default />} path="/" />
-              <Route element={<Notes isArchivePage={false} />} path="/notes" />
-              <Route element={<Archive isArchivePage={true} />} path="/archive" />
-              <Route element={<NoteDetail />} path="/notes/:id" />
-              <Route element={<Profile />} path="/profile" />
-              <Route element={<Settings />} path="/settings" />
-            </Route>
-          </Routes>
+                <Route element={<ProtectedRoutes />}>
+                  <Route element={<Default />} path="/" />
+                  <Route element={<Notes isArchivePage={false} />} path="/notes" />
+                  <Route element={<Archive isArchivePage={true} />} path="/archive" />
+                  <Route element={<NoteDetail />} path="/notes/:id" />
+                  <Route element={<NoteForm />} path="/notes/new-note" />
+                  <Route element={<NoteForm />} path="/notes/edit-note" />
+                  <Route element={<Profile />} path="/profile" />
+                  <Route element={<Settings />} path="/settings" />
+                </Route>
+              </Routes>
+            </div>
+          </WindowSizeContextProvider>
         </NavbarContextProvider>
         {settings.notification && <ToastContainer />}
         {settings.confirmation && displayConfirm && <ConfirmationModal />}

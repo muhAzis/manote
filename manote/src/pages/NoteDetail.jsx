@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import '../styles/NoteDetail.css';
 import dayjs from 'dayjs';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark, base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import useNotes from '../hooks/useNotes';
 import { useConfirm } from '../hooks/useConfirm';
 import { useSettings } from '../hooks/useSettings';
 import NoteForm from './NoteForm';
-import ControlBar from '../components/ControlBar';
 
 const NoteDetail = () => {
   const { id } = useParams();
@@ -18,6 +19,8 @@ const NoteDetail = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [displayForm, setDisplayForm] = useState(false);
+
+  const windowWidth = window.innerWidth;
 
   useEffect(() => {
     (async () => {
@@ -39,7 +42,7 @@ const NoteDetail = () => {
 
   const onArchived = async () => {
     setIsLoading(true);
-    await archiveNote(id, note.isArchived, location.pathname === '/archive');
+    await archiveNote(id, note.title, note.isArchived, location.pathname === '/archive');
     setIsLoading(false);
   };
 
@@ -48,34 +51,54 @@ const NoteDetail = () => {
   };
 
   return (
-    <div className="note-detail-page">
-      <ControlBar />
-      <div className="note-detail-container">
-        {editNoteForm()}
-        {isLoading ? (
-          <div className="loading-container">
-            <lord-icon src="https://cdn.lordicon.com/xjovhxra.json" trigger="loop" colors="primary:#ffffff,secondary:#ffffff"></lord-icon>
+    <div id="noteDetailPage">
+      {editNoteForm()}
+      {isLoading ? (
+        <div className="loading-container">
+          <lord-icon src="https://cdn.lordicon.com/xjovhxra.json" trigger="loop" colors="primary:#ffffff,secondary:#ffffff"></lord-icon>
+        </div>
+      ) : (
+        ''
+      )}
+      <div className="note-detail">
+        <div className="header">
+          <div className="title">
+            <i className={note.isArchived ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'}></i>
+            <h1 className="title-text">{note.title}</h1>
           </div>
-        ) : (
-          ''
-        )}
-        <div className="note-detail">
-          <div className="header">
-            <div className="col1">
-              <h1 className="title">{note.title}</h1>
-              <h4 className="last-updated">{dayjs(note.last_updated).format('DD MMM, YYYY | HH:mm:ss')}</h4>
-            </div>
-            <div className="col2">
-              <i className={note.isArchived ? 'bi bi-journal-bookmark-fill archive-btn active' : 'bi bi-journal-bookmark-fill archive-btn'} onClick={onArchived}></i>
-              <h5 className="archived">{note.isArchived ? 'Archived' : 'Unarchived'}</h5>
-            </div>
-          </div>
-          <p className="note">{note.note}</p>
-          <h5 className="issued">Created: {dayjs(note.issued_at).format('DD MMM, YYYY | HH:mm:ss')}</h5>
-          <div className="action-tab">
-            <i className="bi bi-pencil-square edit-btn" onClick={() => setDisplayForm(true)}></i>
-            <i className="bi bi-trash3 delete-btn" onClick={onDelete}></i>
-          </div>
+          <h4 className="last-updated">{dayjs(note.last_updated).format('DD MMM, YYYY | HH:mm:ss')}</h4>
+        </div>
+        <div className="note">
+          {note.note &&
+            note.note.map((curNote) =>
+              curNote.code ? (
+                <SyntaxHighlighter
+                  key={curNote.id}
+                  language={curNote.lang}
+                  style={atomDark}
+                  customStyle={{
+                    backgroundColor: 'var(--clr-bg-light2)',
+                    textShadow: 'none',
+                  }}
+                >
+                  {curNote.body}
+                </SyntaxHighlighter>
+              ) : (
+                <p key={curNote.id}>{curNote.body}</p>
+              )
+            )}
+        </div>
+        <h5 className="issued">Created: {dayjs(note.issued_at).format('DD MMM, YYYY | HH:mm:ss')}</h5>
+        <div className="action-buttons">
+          <button className="bi bi-pencil-square edit-btn button archive-btn" onClick={() => navigate('/notes/edit-note')}>
+            {windowWidth > 576 && 'Edit'}
+          </button>
+          <button className="bi bi-journal-bookmark-fill button edit-btn" onClick={onArchived}>
+            {windowWidth > 576 ? (note.isArchived ? 'Unarchive' : 'Archive') : ''}
+          </button>
+          <button className="bi bi-trash3 delete-btn button delete-btn" onClick={onDelete}>
+            {windowWidth > 576 && 'Delete'}
+          </button>
         </div>
       </div>
     </div>

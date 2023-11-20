@@ -4,24 +4,23 @@ import { useCookies } from 'react-cookie';
 import SearchBar from './SearchBar';
 import useNotes from '../hooks/useNotes';
 import { useLocation, useNavigate } from 'react-router-dom';
-import NoteForm from '../pages/NoteForm';
 import useLogout from '../hooks/useLogout';
 import useNavbar from '../hooks/useNavbar';
+import { useWindowSize } from '../hooks/useWindowSize';
 
 const ControlBar = () => {
   const [cookies, setCookies] = useCookies();
   const location = useLocation();
   const navigate = useNavigate();
   const { setClosed } = useNavbar();
-
-  const windowWidth = window.innerWidth;
+  const [windowWidth, windowHeight] = useWindowSize();
 
   const { logout, error, isLoading } = useLogout();
   const { notes, sortNotes, getNotes } = useNotes();
 
   const [username, setUsername] = useState('User');
   const [email, setEmail] = useState('user@gmail.com');
-  const [displayForm, setDisplayForm] = useState(false);
+  const [picture, setPicture] = useState({});
   const [checked, setChecked] = useState('last_updated');
   const [reverse, setReverse] = useState(false);
   const [showOption, setShowOption] = useState(false);
@@ -34,20 +33,21 @@ const ControlBar = () => {
   useEffect(() => {
     (() => {
       if (!cookies.user) {
-        return;
+        return console.log('user not found!');
       }
 
-      const { name, email } = cookies.user;
+      const { name, email, picture, issued_at } = cookies.user;
       setUsername(name.split(' ')[0]);
       setEmail(email);
+      setPicture(picture);
     })();
-  }, []);
+  }, [cookies]);
 
   useEffect(() => {
     if (notes.length) {
       sortNotes(checked, reverse);
     }
-  }, [reverse, checked]);
+  }, [reverse, checked, notes]);
 
   const onLogout = async () => {
     await logout();
@@ -60,9 +60,9 @@ const ControlBar = () => {
           <i className="bi bi-list hamburger-menu" onClick={() => setClosed(false)}></i>
           <SearchBar />
           <div className="account-info">
-            <i className="bi bi-person-circle profile-pic"></i>
+            {picture.secure_url !== 'created' ? <img className="profile-pic" src={picture.secure_url} /> : <i className="bi bi-person-circle profile-pic"></i>}
             <div className="profile-detail">
-              <h3 className="username">Hello, {username}!</h3>
+              <h4 className="username">Hello, {username}!</h4>
               <h5 className="email">{email}</h5>
             </div>
             <i className="bi bi-caret-down-fill option-btn" onClick={() => setShowOption((prev) => !prev)}></i>
@@ -82,7 +82,7 @@ const ControlBar = () => {
           <div className="col2">
             <div className="sorting-container">
               <div className={reverse ? 'sort-reverse active' : 'sort-reverse'} onClick={() => setReverse((prev) => !prev)}>
-                <i className="bi bi-sort-down-alt"></i>
+                <i className="bi bi-sort-down"></i>
               </div>
               {sortingOptions.map((option, i) => (
                 <div key={option[1] + i} className={option[1] === checked ? 'sort-menu active' : 'sort-menu'} onClick={() => setChecked(option[1])}>
@@ -90,7 +90,7 @@ const ControlBar = () => {
                 </div>
               ))}
             </div>
-            <button className="add-note-btn" onClick={() => setDisplayForm(true)}>
+            <button className="add-note-btn" onClick={() => navigate('/notes/new-note')}>
               <i className="bi bi-plus-circle"></i>
               {windowWidth > 576 && 'Add new note'}
             </button>
@@ -99,7 +99,6 @@ const ControlBar = () => {
           ''
         )}
       </div>
-      {displayForm ? <NoteForm setDisplay={setDisplayForm} formType={'add'} /> : ''}
     </>
   );
 };

@@ -87,6 +87,7 @@ nav .col1 ul.navbar-menu li span.inactive:hover {
 nav .col1 ul.navbar-menu li span.active {
   color: var(--clr-text-second2);
   font-weight: 700;
+  background-color: var(--clr-bg-dark-trans3);
 }
 
 nav .col1 ul.navbar-menu li span.active::before {

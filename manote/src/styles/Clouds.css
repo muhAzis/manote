@@ -1,0 +1,15 @@
+#clouds {
+  height: 100%;
+}
+
+#clouds path {
+  transition: all 1s;
+}
+
+/* Media Query */
+@media screen and (max-width: 992px) {
+  #clouds {
+    width: 100%;
+    height: fit-content;
+  }
+}

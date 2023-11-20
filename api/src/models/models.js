@@ -1,5 +1,16 @@
 import mongoose from 'mongoose';
 
+const PictureSchema = mongoose.Schema({
+  public_id: {
+    type: String,
+    required: true,
+  },
+  secure_url: {
+    type: String,
+    required: true,
+  },
+});
+
 export const User = mongoose.model('User', {
   name: {
     type: String,
@@ -14,10 +25,30 @@ export const User = mongoose.model('User', {
     type: String,
     required: true,
   },
+  picture: {
+    type: PictureSchema,
+    required: true,
+  },
+  issued_at: {
+    type: String,
+    required: true,
+  },
+  accessed: {
+    type: String,
+    required: true,
+  },
 });
 
 export const RefreshToken = mongoose.model('Token', {
+  user: {
+    type: String,
+    required: true,
+  },
   token: {
+    type: String,
+    required: true,
+  },
+  expires: {
     type: String,
     required: true,
   },
@@ -37,7 +68,7 @@ export const Note = mongoose.model('Note', {
     required: true,
   },
   note: {
-    type: String,
+    type: Array,
     required: true,
   },
   isArchived: {

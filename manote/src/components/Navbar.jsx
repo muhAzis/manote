@@ -4,18 +4,19 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import DarkModeButton from './DarkModeButton';
 import CustomLogo from './CustomLogo';
 import useNavbar from '../hooks/useNavbar';
+import useNotes from '../hooks/useNotes';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { closed, setClosed } = useNavbar();
+  const { emptyNotes } = useNotes();
 
   return (
     <nav className={closed ? 'closed' : ''}>
       <div className="col1">
         <div id="navLogo">
-          <CustomLogo width="30px" color="var(--clr-text-second2)" close={setClosed} />
-          <h3 className={closed ? 'closed' : ''}>Manote</h3>
+          <CustomLogo width="30px" color="var(--clr-text-second2)" close={setClosed} closed={closed} />
           <i className="bi bi-caret-left-fill show-btn" onClick={() => setClosed(true)}></i>
         </div>
         <ul className="navbar-menu">
@@ -25,6 +26,7 @@ const Navbar = () => {
               className={location.pathname === '/notes' ? 'active' : 'inactive'}
               onClick={() => {
                 setClosed(true);
+                emptyNotes();
                 navigate('/notes');
               }}
             >
@@ -38,6 +40,7 @@ const Navbar = () => {
               className={location.pathname === '/archive' ? 'active' : 'inactive'}
               onClick={() => {
                 setClosed(true);
+                emptyNotes();
                 navigate('/archive');
               }}
             >
@@ -51,6 +54,7 @@ const Navbar = () => {
               className={location.pathname === '/profile' ? 'active' : 'inactive'}
               onClick={() => {
                 setClosed(true);
+                emptyNotes();
                 navigate('/profile');
               }}
             >
@@ -64,6 +68,7 @@ const Navbar = () => {
               className={location.pathname === '/settings' ? 'active' : 'inactive'}
               onClick={() => {
                 setClosed(true);
+                emptyNotes();
                 navigate('/settings');
               }}
             >

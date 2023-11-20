@@ -46,7 +46,9 @@
 }
 
 .confirmation-container .confirmation-box .option-box {
+  display: flex;
   margin-top: 40px;
+  gap: 10px;
 }
 
 .confirmation-container .confirmation-box .option-box .option-btn {
@@ -54,18 +56,16 @@
   padding-block: 10px;
   color: var(--clr-text-second3);
   font-weight: 700;
+  background-color: var(--clr-text3);
   border: none;
+  border-radius: 5px;
   transition: all 0.2s;
   cursor: pointer;
 }
 
 .confirmation-container .confirmation-box .option-box .yes-btn {
   color: var(--clr-danger);
-  border-radius: 5px 0 0 5px;
-}
-
-.confirmation-container .confirmation-box .option-box .cancel-btn {
-  border-radius: 0 5px 5px 0;
+  background-color: var(--clr-danger3);
 }
 
 .confirmation-container .confirmation-box .option-box .yes-btn:hover {

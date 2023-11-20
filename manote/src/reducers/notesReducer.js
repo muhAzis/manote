@@ -30,6 +30,13 @@ const notesReducer = (state, action) => {
         ...state,
         renderNotes: payload.renderNotes,
       };
+    case 'EMPTY_NOTE':
+      return {
+        ...state,
+        note: payload.note,
+        notes: payload.notes,
+        renderNotes: payload.renderNotes,
+      };
 
     default:
       throw new Error(`No case for type "${type}" in notesReducer!`);

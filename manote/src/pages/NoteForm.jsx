@@ -1,78 +1,127 @@
 import React, { useState } from 'react';
 import '../styles/NoteForm.css';
+import TextArea from '../components/TextArea';
 import useNotes from '../hooks/useNotes';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const NoteForm = ({ setDisplay, formType }) => {
+const NewNote = () => {
+  const navigate = useNavigate();
   const location = useLocation();
-  const { note, addNote, updateNote } = useNotes();
 
-  const [rTitle, setRTitle] = useState(formType === 'add' ? 'New note' : note.title);
-  const [rNote, setRNote] = useState(formType === 'add' ? '' : note.note);
+  const { note, addNote, updateNote, emptyNotes } = useNotes();
+
+  const [title, setTitle] = useState(location.pathname === '/notes/new-note' ? 'New Note' : note.title);
+  const [notes, setNotes] = useState(
+    location.pathname === '/notes/new-note'
+      ? [
+          {
+            id: 1,
+            code: false,
+            body: '',
+            lang: null,
+          },
+        ]
+      : note.note
+  );
   const [isLoading, setIsLoading] = useState(false);
 
-  const onAddNote = async () => {
+  const onAddNote = async (e) => {
+    e.preventDefault();
     setIsLoading(true);
-    await addNote(rTitle, rNote, location.pathname === '/archive');
-    setRTitle('');
-    setRNote('');
+    await addNote(title, notes, location.pathname === '/archive');
     setIsLoading(false);
-    setDisplay(false);
+    navigate('/notes');
   };
 
-  const onEditNote = async () => {
+  const onEditNote = async (e) => {
+    e.preventDefault();
     setIsLoading(true);
     const data = {
       note_id: note.note_id,
-      title: rTitle,
-      note: rNote,
+      title: title,
+      note: notes,
     };
 
-    await updateNote(data);
+    await updateNote(data, note.title);
     setIsLoading(false);
-    setDisplay(false);
+    navigate(`/notes/${note.note_id}`);
   };
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    formType === 'add' ? onAddNote() : onEditNote();
+  const onCancel = () => {
+    if (location.pathname === '/notes/new-note') {
+      emptyNotes();
+      return navigate('/notes');
+    } else {
+      if (!note) {
+        emptyNotes();
+        return navigate('/notes');
+      }
+
+      return navigate(`/notes/${note.note_id}`);
+    }
   };
 
   const setColor = () => {
-    if (50 - rTitle.length <= 0) {
+    if (50 - title.length <= 0) {
       return { color: 'red' };
-    } else if (50 - rTitle.length > 0 && 50 - rTitle.length <= 10) {
+    } else if (50 - title.length > 0 && 50 - title.length <= 10) {
       return { color: 'yellow' };
     } else {
-      return { color: 'white' };
+      return { color: 'var(--clr-text1)' };
     }
   };
 
   return (
-    <div className="add-note-form-container">
-      <div className="form-container">
-        <i className="bi bi-x-circle-fill close-btn" onClick={() => setDisplay(false)}></i>
-        <h1>{formType === 'add' ? 'New Note' : 'Edit Note'}</h1>
-        <form className="add-note-form" onSubmit={onSubmit}>
-          <input
-            className="input-bar"
-            type="text"
-            placeholder="title"
-            value={rTitle}
-            onChange={(e) => {
-              return setRTitle(e.target.value.slice(0, 50));
+    <div id="newNotePage">
+      <h1 className="page-title">{location.pathname === '/notes/new-note' ? 'New Note Page' : 'Edit Note Page'}</h1>
+      <form id="newNoteForm" onSubmit={location.pathname === '/notes/new-note' ? onAddNote : onEditNote}>
+        <input className="title-input" type="text" value={title} onChange={(e) => setTitle(e.target.value.slice(0, 50))} placeholder="Note's title..." />
+        <p className="title-limit" style={setColor()}>
+          You have {50 - title.length} character(s) left
+        </p>
+        <div className="body">
+          {notes.map((curNote) => (
+            <TextArea key={curNote.id} code={curNote.code} id={curNote.id} body={curNote.body} language={curNote.lang} notes={notes} setNotes={setNotes} />
+          ))}
+          <button
+            className="add-code-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              const newNote = [...notes];
+              newNote.push(
+                {
+                  id: notes[notes.length - 1].id + 1,
+                  code: true,
+                  body: '',
+                  lang: '',
+                },
+                {
+                  id: notes[notes.length - 1].id + 2,
+                  code: false,
+                  body: '',
+                  lang: null,
+                }
+              );
+              setNotes(newNote);
             }}
-            required
-          />
-          <p className="title-limit" style={setColor()}>
-            You have {50 - rTitle.length} character(s) left
-          </p>
-          <textarea className="textarea-bar" cols="30" rows="10" placeholder="write your note here..." value={rNote} onChange={(e) => setRNote(e.target.value)} required autoFocus></textarea>
-          <button type="submit">{isLoading ? <lord-icon src="https://cdn.lordicon.com/xjovhxra.json" trigger="loop" colors="primary:#1f1f1f,secondary:#1f1f1f" style={{ width: '20px', height: '20px' }}></lord-icon> : 'Submit'}</button>
-        </form>
-      </div>
+          >
+            <i className="bi bi-code-slash"></i>
+            Add code
+          </button>
+        </div>
+        <div className="action-buttons">
+          <button className="cancel-btn" type="button" onClick={onCancel}>
+            <i className="bi bi-x-lg"></i>
+            Cancel
+          </button>
+          <button className="save-note-btn" type="submit">
+            {isLoading ? <lord-icon src="https://cdn.lordicon.com/xjovhxra.json" trigger="loop" colors="primary:#1d2d44,secondary:#1d2d44"></lord-icon> : <i className="bi bi-journal-plus"></i>}
+            {!isLoading && 'Save'}
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
 
-export default NoteForm;
+export default NewNote;

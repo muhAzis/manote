@@ -14,7 +14,7 @@ const ConfirmationModal = () => {
 
   const onDelete = async () => {
     setIsLoading(true);
-    await deleteNote(note.note_id);
+    await deleteNote(note.note_id, note.title);
     await getNotes(location.pathname === '/archive');
     setIsLoading(false);
     setDisplayConfirm(false);

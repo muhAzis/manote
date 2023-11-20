@@ -1,0 +1,87 @@
+.text-area-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.text-area-card .control-bar {
+  display: flex;
+  padding: 10px 20px;
+  background-color: var(--clr-bg-light);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-area-card .control-bar #languageSelector {
+  position: relative;
+  display: flex;
+  width: 200px;
+  padding: 6px 10px;
+  color: var(--clr-text-second);
+  background-color: var(--clr-action);
+  border-radius: 5px;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.text-area-card .control-bar #languageSelector:hover {
+  background-color: var(--clr-action2);
+}
+
+.text-area-card .control-bar #languageSelector #languages {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 0;
+  top: 100%;
+  left: 0;
+  padding: 0 10px;
+  background-color: var(--clr-bg-light);
+  border-radius: 5px;
+  transition: all 0.2s;
+  overflow-y: scroll;
+  z-index: 1;
+}
+
+.text-area-card .control-bar #languageSelector #languages.select {
+  max-height: 300px;
+  padding: 10px;
+}
+
+.text-area-card .control-bar #languageSelector #languages .langs {
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+
+.text-area-card .control-bar #languageSelector #languages .langs:hover {
+  background-color: var(--clr-action2);
+}
+
+.text-area-card .control-bar i.close-btn {
+  color: var(--clr-danger);
+  font-size: var(--fz-icon2);
+  line-height: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.text-area-card .control-bar i.close-btn:hover {
+  color: var(--clr-text-second);
+  background-color: var(--clr-danger);
+}
+
+.text-area-card textarea.note-input {
+  margin-bottom: 10px;
+  color: var(--clr-text1);
+  background-color: transparent;
+  outline: none;
+  border: none;
+  resize: none;
+  border-radius: 5px;
+}
+
+.text-area-card:nth-child(2n + 3) textarea.note-input {
+  margin-top: 10px;
+}

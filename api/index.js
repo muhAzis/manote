@@ -8,7 +8,7 @@ const app = express();
 const port = 5000;
 
 app.use(cors({ credentials: true, origin: true }));
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
 app.use(routes);
 

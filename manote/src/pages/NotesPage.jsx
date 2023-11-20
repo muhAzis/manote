@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/NotesPage.css';
-import ControlBar from '../components/ControlBar';
-import NoteContainer from '../components/NoteContainer';
+import NoteCard from '../components/NoteCard';
 import useNotes from '../hooks/useNotes';
 import EmptyShelf from '../components/EmptyShelf';
 import EmptySearch from '../components/EmptySearch';
 
 const NotesPage = ({ isArchivePage }) => {
-  const { notes, renderNotes, getNotes } = useNotes();
+  const { notes, renderNotes, getNotes, emptyNote } = useNotes();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -23,7 +22,7 @@ const NotesPage = ({ isArchivePage }) => {
     return renderNotes.length ? (
       renderNotes.map((note, i) => {
         const { __v, _id, creator, ...data } = note;
-        return <NoteContainer key={note.title + i} {...data} />;
+        return <NoteCard key={note.title + i} {...data} />;
       })
     ) : (
       <EmptySearch />
@@ -31,19 +30,16 @@ const NotesPage = ({ isArchivePage }) => {
   };
 
   return (
-    <div className="dashboard-container">
-      <ControlBar />
-      <div className="notes-container" style={renderNotes.length ? {} : { height: '100%' }}>
-        {isLoading ? (
-          <div className="loading-container">
-            <lord-icon src="https://cdn.lordicon.com/xjovhxra.json" trigger="loop" colors="primary:#e0e0e0,secondary:#e0e0e0"></lord-icon>
-          </div>
-        ) : notes.length ? (
-          notesRender()
-        ) : (
-          <EmptyShelf />
-        )}
-      </div>
+    <div className="notes-container" style={!renderNotes.length || isLoading ? { display: 'flex', height: '100%' } : {}}>
+      {isLoading ? (
+        <div className="loading-container">
+          <lord-icon src="https://cdn.lordicon.com/xjovhxra.json" trigger="loop" colors="primary:#e0e0e0,secondary:#e0e0e0"></lord-icon>
+        </div>
+      ) : notes.length ? (
+        notesRender()
+      ) : (
+        <EmptyShelf />
+      )}
     </div>
   );
 };

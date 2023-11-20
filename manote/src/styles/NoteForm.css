@@ -1,90 +1,131 @@
-.add-note-form-container {
-  position: fixed;
+#newNotePage {
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: var(--clr-bg-dark-trans);
-  backdrop-filter: blur(4px);
-  justify-content: center;
+  padding: 20px;
   align-items: center;
-  z-index: 100;
+  overflow-y: scroll;
 }
 
-.add-note-form-container .form-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 90vw;
-  max-width: 500px;
-  padding: 60px 20px;
-  gap: 30px;
+#newNotePage h1.page-title {
   color: var(--clr-text1);
-  background-color: var(--clr-bg-light-trans2);
-  border: 1px solid var(--clr-bg-light-trans);
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
 }
 
-.add-note-form-container .form-container i.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  color: var(--clr-danger);
-  font-size: 2rem;
-  transition: all 0.2s;
-  cursor: pointer;
-}
-
-.add-note-form-container .form-container i.close-btn:hover {
-  color: var(--clr-danger2);
-}
-
-.add-note-form-container .form-container form.add-note-form {
+#newNotePage #newNoteForm {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 400px;
-  gap: 30px;
-  align-items: center;
+  max-width: 900px;
+  padding-block: 20px;
 }
 
-.add-note-form-container .form-container form.add-note-form .input-bar,
-.add-note-form-container .form-container form.add-note-form .textarea-bar {
-  width: 100%;
-  padding: 10px;
+#newNotePage #newNoteForm .title-input {
+  padding: 10px 20px;
+  color: var(--clr-text1);
+  font-size: 1.5rem;
+  font-weight: 700;
+  background-color: var(--clr-bg-dark-trans3);
+  box-shadow: var(--clr-box-shadow3);
   border-radius: 5px;
   outline: none;
   border: none;
-  resize: none;
+  cursor: pointer;
 }
 
-.add-note-form-container .form-container form.add-note-form .input-bar:focus + p {
+#newNotePage #newNoteForm .title-input:hover {
+  color: var(--clr-action);
+}
+
+#newNotePage #newNoteForm .title-input:focus {
+  background-color: var(--clr-bg-light);
+  cursor: text;
+}
+
+#newNotePage #newNoteForm .title-input:focus:hover {
+  color: var(--clr-text1);
+}
+
+#newNotePage #newNoteForm .title-input:focus + p.title-limit {
   display: block;
 }
 
-.add-note-form-container .form-container form.add-note-form p.title-limit {
+#newNotePage #newNoteForm p.title-limit {
   display: none;
-  margin-top: -20px;
-  color: greenyellow;
-  font-size: 0.9rem;
+  width: fit-content;
+  padding: 5px 20px;
+  font-size: 0.8rem;
+  border-radius: 5px;
 }
 
-.add-note-form-container .form-container form.add-note-form button {
-  padding: 10px 40px;
-  color: white;
+#newNotePage #newNoteForm .body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: var(--clr-bg-dark-trans3);
+  border-radius: 5px;
+}
+
+#newNotePage #newNoteForm .body button.add-code-btn {
+  display: flex;
+  margin-top: 20px;
+  padding: 5px 20px;
+  gap: 10px;
+  color: var(--clr-bg-light);
   font-size: 1rem;
   font-weight: 700;
   background-color: var(--clr-action);
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  transition: all 0.2s;
 }
 
-.add-note-form-container .form-container form.add-note-form button:hover {
+#newNotePage #newNoteForm .body button.add-code-btn:hover {
   background-color: var(--clr-action2);
+}
+
+#newNotePage #newNoteForm .body button.add-code-btn i {
+  font-size: 1.2rem;
+}
+
+#newNotePage #newNoteForm .action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+#newNotePage #newNoteForm .action-buttons button {
+  display: flex;
+  width: fit-content;
+  padding: 10px 20px;
+  gap: 10px;
+  color: var(--clr-bg-light);
+  font-size: 1rem;
+  background-color: var(--clr-action);
+  border: none;
+  border-radius: 5px;
+  align-items: center;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+#newNotePage #newNoteForm .action-buttons button.save-note-btn:hover {
+  background-color: var(--clr-action2);
+}
+
+#newNotePage #newNoteForm .action-buttons button.cancel-btn {
+  color: var(--clr-text-second);
+  background-color: var(--clr-danger);
+}
+
+#newNotePage #newNoteForm .action-buttons button.cancel-btn:hover {
+  color: var(--clr-danger);
+  background-color: var(--clr-danger3);
+}
+
+lord-icon {
+  height: 20px;
 }

@@ -1,87 +1,126 @@
-.signin-container {
+#signinPage {
+  position: relative;
   display: flex;
-  flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   color: var(--clr-text-second);
-  background-color: var(--clr-main);
-  justify-content: center;
+  background: linear-gradient(to bottom, var(--clr-sky-dark) 0%, var(--clr-sky-light) 100%);
+  align-items: center;
+  overflow-y: hidden;
+}
+
+#signinPage::before {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 200%;
+  left: 0;
+  bottom: var(--height-sky);
+  background: linear-gradient(to bottom, var(--clr-sky-dark) 0%, var(--clr-sky-light) 100%);
+  transition: 1s;
+}
+
+#signinPage .form-container {
+  position: relative;
+  display: flex;
+  flex: 1.5;
+  height: 100vh;
+  justify-content: space-between;
   align-items: center;
 }
 
-.signin-container h3 {
-  position: absolute;
-  display: flex;
-  top: 1rem;
-  left: 2rem;
-  gap: 10px;
-  color: var(--clr-text-second);
-  font-size: 2rem;
-}
-
-.signin-container .form-container {
-  position: absolute;
+#signinPage .form-container .contents {
+  position: relative;
   display: flex;
   flex-direction: column;
-  width: 90vw;
-  max-width: 400px;
-  padding: 60px 40px;
-  top: 8rem;
+  flex: 1;
+  height: 100%;
   gap: 30px;
-  background: var(--clr-bg-glass);
-  border: 1px solid var(--clr-bg-light-trans);
-  border-radius: 10px;
-  justify-content: center;
+  padding-block: 20px;
+  background-color: var(--clr-bg-light);
   align-items: center;
+  justify-content: center;
+  transition: all 1s;
 }
 
-.signin-container .form-container .signin-form {
+#signinPage .form-container .contents::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  top: 0;
+  left: -15px;
+  background-color: var(--clr-bg-light);
+  transition: all 1s;
+}
+
+#signinPage .form-container .contents h1.title {
+  color: var(--clr-text-second4);
+}
+
+#signinPage .form-container .contents .signin-form {
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 350px;
+  padding: 20px;
   gap: 15px;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 
-.signin-container .form-container .signin-form .input-bar {
+#signinPage .form-container .contents .signin-form .input-bar {
+  display: flex;
   width: 100%;
   padding: 10px;
-  border-radius: 10px;
+  background-color: var(--clr-text3);
+  border-radius: 5px;
+  box-shadow: var(--clr-box-shadow3);
+  justify-content: center;
+  align-items: center;
+}
+
+#signinPage .form-container .contents .signin-form .input-bar i {
+  color: var(--clr-text-second3);
+  cursor: pointer;
+}
+
+#signinPage .form-container .contents .signin-form .input-bar i:hover {
+  color: var(--clr-action);
+}
+
+#signinPage .form-container .contents .signin-form .input-bar input {
+  width: 100%;
+  background-color: transparent;
+  background: none;
   outline: none;
   border: none;
 }
 
-.signin-container .form-container .signin-form .input-bar:focus + p,
-.signin-container .form-container .signin-form .input-bar:focus + ul {
-  display: block;
-}
-
-.signin-container .form-container .signin-form p {
+#signinPage .form-container .contents .signin-form p.to-login {
   text-align: center;
 }
 
-.signin-container .form-container .signin-form p span {
+#signinPage .form-container .contents .signin-form p.to-login span {
   color: var(--clr-text-second);
   font-weight: 700;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.signin-container .form-container .signin-form p.text-info,
-.signin-container .form-container .signin-form p.confirm-password {
-  display: none;
+#signinPage .form-container .contents .signin-form p.text-info,
+#signinPage .form-container .contents .signin-form p.confirm-password {
   width: 100%;
   margin-top: -10px;
-  color: var(--clr-text-second);
+  color: var(--clr-text1);
   font-size: 0.9rem;
   font-weight: 500;
   text-align: start;
   transition: all 0.2s;
 }
 
-.signin-container .form-container .signin-form ul.password-rules {
-  display: none;
+#signinPage .form-container .contents .signin-form ul.password-rules {
   width: 100%;
   margin-top: -10px;
   list-style: inside;
@@ -90,11 +129,28 @@
   font-weight: 500;
 }
 
-.signin-container .form-container .signin-form p.confirm-password {
+#signinPage .form-container .contents .signin-form p.confirm-password {
   color: var(--clr-danger);
 }
 
-.signin-container .form-container .signin-form button {
+#signinPage .form-container .contents .signin-form p {
+  color: var(--clr-text1);
+  text-align: center;
+}
+
+#signinPage .form-container .contents .signin-form p span {
+  color: var(--clr-text1);
+  font-weight: 700;
+  text-decoration: underline;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+#signinPage .form-container .contents .signin-form p span:hover {
+  color: var(--clr-action);
+}
+
+#signinPage .form-container .contents .signin-form button {
   display: flex;
   margin-top: 20px;
   padding: 10px 40px;
@@ -109,6 +165,46 @@
   transition: all 0.2s;
 }
 
-.signin-container .form-container .signin-form button:hover {
+#signinPage .form-container .contents .signin-form button:hover {
   background-color: var(--clr-accent2);
+}
+
+/* Media Query */
+@media screen and (max-width: 1200px) {
+  #signinPage .form-container {
+    flex: 2;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #signinPage {
+    flex-direction: column;
+    height: fit-content;
+    overflow-y: scroll;
+  }
+
+  #signinPage .form-container {
+    flex-direction: column;
+    flex: none;
+    width: 100%;
+  }
+
+  #signinPage .form-container .contents {
+    flex: 1;
+    width: 100%;
+  }
+
+  #signinPage .form-container .contents::before {
+    width: 100%;
+    height: 30px;
+    top: -15px;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #signinPage .form-container {
+    height: fit-content;
+    min-height: 100vh;
+  }
 }

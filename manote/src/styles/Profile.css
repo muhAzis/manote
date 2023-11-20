@@ -1,23 +1,24 @@
-.profile-container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  height: 100%;
-  overflow-y: scroll;
-  align-items: center;
-}
-
-.profile-container .profile-page-detail {
-  width: 100%;
-  max-width: 900px;
-  padding: 20px;
-}
-
-.profile-container .profile-page-detail .header {
+#profilePage {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-bottom: 20px;
+  width: 100%;
+  padding-inline: 20px;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+#profilePage::-webkit-scrollbar {
+  display: none;
+}
+
+#profilePage .header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 900px;
+  padding-block: 20px;
   margin-bottom: 20px;
   gap: 10px;
   align-items: center;
@@ -25,52 +26,90 @@
   border-bottom: 1px solid var(--clr-bg-dark-trans2);
 }
 
-.profile-container .profile-page-detail .header .profile-image i {
+#profilePage .header .profile-image {
+  position: relative;
+}
+
+#profilePage .header .profile-image .profile-picture {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#profilePage .header .profile-image i.profile-picture {
   color: var(--clr-text1);
-  font-size: 7rem;
+  font-size: 12.5rem;
   line-height: 0;
 }
 
-.profile-container .profile-page-detail .header .profile-info {
+#profilePage .header .profile-image i.edit-profile-pict {
+  position: absolute;
+  bottom: 0.4rem;
+  right: 1.4rem;
+  padding: 6px;
+  color: var(--clr-text1);
+  font-size: var(--fz-icon2);
+  line-height: 0;
+  background-color: var(--clr-bg-light2);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#profilePage .header .profile-image i.edit-profile-pict:hover {
+  color: var(--clr-action);
+}
+
+#profilePage .header .profile-info {
   display: flex;
   flex-direction: column;
   color: var(--clr-text1);
   align-items: center;
 }
 
-.profile-container .profile-page-detail .header .profile-info h3.email {
+#profilePage .header .profile-info h1.username {
+  text-align: center;
+}
+
+#profilePage .header .profile-info h3.email {
   color: var(--clr-text2);
   font-size: 1rem;
 }
 
-.profile-container .profile-page-detail .header .profile-settings {
+#profilePage .header .profile-info p.issued {
+  margin-top: 10px;
+  color: var(--clr-text2);
+  font-size: 1rem;
+}
+
+#profilePage .header .profile-settings {
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
 
-.profile-container .profile-page-detail .header .profile-settings .setting-btn {
+#profilePage .header .profile-settings .setting-btn {
   color: var(--clr-text2);
   transition: all 0.2s;
 }
 
-.profile-container .profile-page-detail .header .profile-settings .setting-btn i {
+#profilePage .header .profile-settings .setting-btn i {
   font-size: 2.6rem;
   line-height: 0;
   transition: all 0.2s;
   cursor: pointer;
 }
 
-.profile-container .profile-page-detail .header .profile-settings .setting-btn:hover {
+#profilePage .header .profile-settings .setting-btn:hover {
   color: var(--clr-action);
 }
 
-.profile-container .profile-page-detail .header .profile-settings .setting-btn.active {
+#profilePage .header .profile-settings .setting-btn.active {
   color: var(--clr-action);
   transform: rotate(90deg);
 }
 
-.profile-container .profile-page-detail .header .profile-settings .settings {
+#profilePage .header .profile-settings .settings {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -78,56 +117,94 @@
   top: 120%;
   right: 0;
   box-shadow: var(--clr-box-shadow2);
-  border-radius: 10px;
+  border-radius: 5px;
   opacity: 0;
   transition: all 0.2s;
   overflow: hidden;
   cursor: pointer;
 }
 
-.profile-container .profile-page-detail .header .profile-settings .settings h4 {
+#profilePage .header .profile-settings .settings p {
   padding: 10px 20px;
   color: var(--clr-text1);
+  font-weight: 700;
   white-space: nowrap;
   text-align: center;
   background-color: var(--clr-bg-light);
   transition: all 0.2s;
 }
 
-.profile-container .profile-page-detail .header .profile-settings .settings h4.edit-btn {
+#profilePage .header .profile-settings .settings p.edit-btn {
   border-bottom: 1px solid var(--clr-bg-dark-trans2);
 }
 
-.profile-container .profile-page-detail .header .profile-settings .settings h4.logout-btn {
+#profilePage .header .profile-settings .settings p.logout-btn {
   display: flex;
   gap: 6px;
   justify-content: center;
   align-items: center;
 }
 
-.profile-container .profile-page-detail .header .profile-settings .settings h4.logout-btn i {
-  font-size: 1.4rem;
-}
-
-.profile-container .profile-page-detail .header .profile-settings .settings h4.logout-btn lord-icon {
+#profilePage .header .profile-settings .settings p.logout-btn lord-icon {
   width: 22px;
   height: 22px;
 }
 
-.profile-container .profile-page-detail .header .profile-settings .settings h4:hover {
+#profilePage .header .profile-settings .settings p:hover {
   color: var(--clr-bg-light);
   background-color: var(--clr-action);
 }
 
-.profile-container .profile-page-detail .header .profile-settings .active {
+#profilePage .header .profile-settings .active {
   max-height: 100px;
   opacity: 1;
 }
 
-.profile-container .profile-page-detail .body {
+#profilePage .body {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+#profilePage .body .cols {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: fit-content;
   padding: 10px;
-  height: 500px;
-  background-color: var(--clr-bg-light);
-  box-shadow: var(--clr-box-shadow3);
-  border-radius: 10px;
+  gap: 20px;
+  overflow-x: hidden;
+}
+
+#profilePage .body .col1 .recent-notes {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  gap: 10px;
+  border: 2px solid var(--clr-action2);
+  border-radius: 5px;
+}
+
+#profilePage .body .col1 .recent-notes h3.recent-notes-title {
+  color: var(--clr-text1);
+}
+
+/* Media Query */
+@media Screen and (max-width: 1200px) {
+  #profilePage .body {
+    max-width: 800px;
+  }
+}
+
+@media Screen and (max-width: 576px) {
+  #profilePage .body {
+    flex-direction: column;
+  }
+
+  #profilePage .body .cols {
+    width: 100%;
+  }
 }
